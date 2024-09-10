@@ -4,10 +4,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primaryColor: "",
-      },
-      backgroundImage: {
-        "custom-gradient": "linear-gradient(90deg, #ECEBEB 0%, #FDFBFB 100%)",
+        primaryColor: "red",
       },
     },
   },

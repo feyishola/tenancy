@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+body {
+  background-color: #efeeee;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -24,7 +28,19 @@
   color: white;
 }
 
-.test {
+.filterimg {
+  filter: contrast(100%) grayscale(100%) brightness(70%);
+  -webkit-filter: contrast(100%) grayscale(100%) brightness(70%);
+  transition: filter 0.2s;
+  -webkit-transition: filter 0.2s;
+  -moz-transition: filter 0.2s;
+  -ms-transition: filter 0.2s;
+  -o-transition: filter 0.2s;
+}
+
+.filternone {
+  filter: none;
+  -webkit-filter: none;
 }
 
 .App-link {

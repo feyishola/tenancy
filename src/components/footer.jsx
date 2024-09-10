@@ -1,46 +1,53 @@
-import React from 'react'
+import React from 'react';
 import icon from "../svgs/icon.svg";
 import logoName from "../svgs/logo.svg";
-import { IoMdNotificationsOutline } from "react-icons/io";
-import { RiMessage2Line } from "react-icons/ri";
-
+import { FaFacebookSquare } from "react-icons/fa";
+import { FaTwitter } from "react-icons/fa";
+import { AiFillInstagram } from "react-icons/ai";
+import { IoLogoYoutube } from "react-icons/io";
+import { IoMailSharp } from "react-icons/io5";
 
 const Footer = () => {
   return (
-    <div className="w-full flex flex-col justify-center items-center" style={{borderTop:"1px solid black"}}>
-        <div className="w-full max-w-[1797px] flex justify-between px-[62px] pt-[32px]">
-        <div>
-            <div className="gap-2 flex">
-            <img src={icon} alt="icon" />
-            <img src={logoName} alt="logo name" />
-            </div>
-            <p>© 2021 10ancy. All rights reserved.</p>
-        </div>
-        <div className="flex gap-2 justify-between">
-            <IoMdNotificationsOutline />
-            <RiMessage2Line />
-            <IoMdNotificationsOutline />
-            <RiMessage2Line />
-            <IoMdNotificationsOutline />
+    <footer className="w-full flex flex-col justify-center items-center border-t border-black pt-2 pb-5">
+      <div className="w-full max-w-[1797px] flex flex-col md:flex-row justify-between items-center md:items-start px-4 md:px-[62px] pt-2 md:pt-[15px] gap-6 md:gap-0">
+        
+        {/* Logo Section */}
+        <div className="flex flex-col items-start gap-2">
+          <div className="flex gap-2 items-center">
+            <img src={icon} alt="icon" className="w-[40px] h-[40px]" />
+            <img src={logoName} alt="logo name" className="h-[15px]" />
+          </div>
+          <p className="text-sm">© 2021 10ancy. All rights reserved.</p>
         </div>
 
-        <div className="flex gap-5 justify-between">
+        {/* Icon Section */}
+        <div className="flex gap-4 justify-center md:justify-between">
+          <FaFacebookSquare className="w-6 h-6 cursor-pointer" />
+          <FaTwitter className="w-6 h-6 cursor-pointer" />
+          <AiFillInstagram className="w-6 h-6 cursor-pointer" />
+          <IoLogoYoutube className="w-6 h-6 cursor-pointer" />
+          <IoMailSharp className="w-6 h-6 cursor-pointer" />
+        </div>
+
+        {/* Company & Support Section */}
+        <div className="flex flex-row gap-5 justify-between">
           <div>
-            <p>Company</p>
-            <ul style={{listStyle:"none",listStyleType:"none"}}>
-                <li>About Us</li>
-                <li>Locations we cover</li>
-                <li>Read our Guidlines</li>
+            <p className="font-semibold">Company</p>
+            <ul className="list-none mt-2 space-y-2 text-sm">
+              <li className="cursor-pointer hover:text-gray-600">About Us</li>
+              <li className="cursor-pointer hover:text-gray-600">Locations we cover</li>
+              <li className="cursor-pointer hover:text-gray-600">Read our Guidelines</li>
             </ul>
           </div>
           <div>
-            <p>Support</p>
-            <p>Help Center</p>
+            <p className="font-semibold">Support</p>
+            <p className="mt-2 cursor-pointer hover:text-gray-600">Help Center</p>
           </div>
         </div>
-        </div>
-    </div>
-  )
-}
+      </div>
+    </footer>
+  );
+};
 
-export default Footer
+export default Footer;

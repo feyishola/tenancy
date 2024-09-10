@@ -4,31 +4,36 @@ import logoName from "../svgs/logo.svg";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { RiMessage2Line } from "react-icons/ri";
 import { CgProfile } from "react-icons/cg";
+
+
 const Navbar = () => {
   return (
-    <div className="w-full flex flex-col justify-center items-center border border-b-black">
-      <div className="w-full max-w-[1797px] flex justify-between px-[62px] pt-[32px]">
-        <div className="gap-2 flex">
-          <img src={icon} alt="icon" />
-          <img src={logoName} alt="logo name" />
+    <nav className="w-full flex flex-col md:flex-row justify-center items-center border-b border-b-gray-300 bg-[primaryColor]">
+      <div className="w-full max-w-[1797px] flex flex-col md:flex-row justify-between items-center px-4 md:px-[62px] pt-4 md:pt-[32px]">
+        {/* Logo Section */}
+        <div className="flex gap-2 items-center mb-4 md:mb-0">
+          <img src={icon} alt="icon" className="w-[40px] h-[40px]" />
+          <img src={logoName} alt="logo name" className="h-[15px]" />
         </div>
 
-        <div className="flex gap-5 justify-between">
-          <p>Make a choice</p>
-          <p>Become a host</p>
-          <p>About Us</p>
+        {/* Navigation Links */}
+        <div className="hidden md:flex gap-6">
+          <p className="cursor-pointer hover:text-gray-700">Make a choice</p>
+          <p className="cursor-pointer hover:text-gray-700">Become a host</p>
+          <p className="cursor-pointer hover:text-gray-700">About Us</p>
         </div>
 
-        <div className="flex gap-5 justify-between">
-          <IoMdNotificationsOutline />
-          <RiMessage2Line />
-          <div className="flex gap-1">
-            <CgProfile />
-            Account
+        {/* Icons and Account */}
+        <div className="flex gap-5 items-center">
+          <IoMdNotificationsOutline className="w-6 h-6 cursor-pointer" />
+          <RiMessage2Line className="w-6 h-6 cursor-pointer" />
+          <div className="flex gap-1 items-center cursor-pointer">
+            <CgProfile className="w-6 h-6" />
+            <span>Account</span>
           </div>
         </div>
       </div>
-    </div>
+    </nav>
   );
 };
 
