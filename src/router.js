@@ -1,6 +1,7 @@
 import { createBrowserRouter, Outlet } from "react-router-dom";
 import Home from "./pages/home";
 import Layout from "./layout/layout";
+import Login from "./components/Login";
 
 const router = createBrowserRouter([
   {
@@ -21,7 +22,7 @@ const router = createBrowserRouter([
       },
       {
         path: "godwin",
-        element: <div>godwin work</div>,
+        element: <div><Login/></div>,
       },
       {
         path: "blessing",
