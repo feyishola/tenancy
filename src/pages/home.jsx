@@ -36,15 +36,15 @@ const Home = () => {
   return (
     <>
     <div className='flex flex-col md:flex-row justify-between gap-2'>
-        <div className='w-[170px] pt-3'>
+        <div className='w-[170px] pt-5 text-start font-unna'>
           What would you like to do today?
         </div>
         <Searchinput/>
     </div>
-    <div className='mb-[50px] flex flex-col md:flex-row justify-between gap-4'>
+    <div className='mb-[50px] flex flex-col md:flex-row justify-between gap-4 mt-8'>
       <div className='w-full md:w-[30%] cursor-pointer relative' onClick={()=>dispatch({type:"FIRSTIMG"})}>
         <img src={img1} alt='img1' className={`w-full h-full object-cover filterimg ${state.firstImg && 'filternone'}`}/>
-        <img src={circle} alt='circleimg' className='w-[45px] h-[45px] absolute top-[-20px] right-[-15px]'/>
+        <img src={circle} alt='circleimg' className={`w-[45px] h-[45px] absolute top-[-20px] right-[-15px] ${state.firstImg && 'hidden'} `}/>
         <div className={`bg-white  absolute top-[68%] p-3 left-[1%] md:left-[30%] ${state.showImg1 && 'hidden'}`} style={{border:"3px solid black"}} >
           <img src={info3} alt='information' className=''/>
         </div>
@@ -52,14 +52,14 @@ const Home = () => {
       </div>
       <div className='w-full md:w-[25%] cursor-pointer relative ' onClick={()=>dispatch({type:"SECONDIMG"})}>
         <img src={img2} alt='img2' className={`w-full h-full object-cover filterimg ${state.secondImg && 'filternone'}`}/>
-        <img src={circle} alt='circleimg'  className='w-[45px] h-[45px] absolute top-[-20px] right-[-15px]'/>
+        <img src={circle} alt='circleimg'  className={`w-[45px] h-[45px] absolute top-[-20px] right-[-15px] ${state.secondImg && 'hidden'} `}/>
         <div className={`bg-white  absolute top-[68%] p-3 left-[30%] ${state.showImg2 && 'hidden'}`} style={{border:"3px solid black"}} >
           <img src={rent} alt='information' className=''/>
         </div>
       </div>
       <div className='w-full md:w-[30%] cursor-pointer relative' onClick={()=>dispatch({type:"THIRDIMG"})}>
         <img src={img3}  alt='img3' className={`w-full h-full object-cover filterimg ${state.thirdImg && 'filternone'}`}/>
-        <img src={circle} alt='circleimg'  className='w-[45px] h-[45px] absolute top-[-20px] right-[-15px]'/>
+        <img src={circle} alt='circleimg'  className={`w-[45px] h-[45px] absolute top-[-20px] right-[-15px] ${state.thirdImg && 'hidden'} `}/>
         <img src={listImg} alt='information' className={`absolute top-[68%] p-3 left-[1%] md:left-[30%] ${state.showImg3 && 'hidden'}`}/>
        
       </div>

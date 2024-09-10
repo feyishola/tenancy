@@ -6,6 +6,9 @@ module.exports = {
       colors: {
         primaryColor: "red",
       },
+      fontFamily: {
+        unna: ["Unna", "serif"],
+      },
     },
   },
   plugins: [],

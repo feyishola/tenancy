@@ -4,7 +4,7 @@ import { RiCalendar2Line } from "react-icons/ri";
 export default function Searchinput() {
   return (
     <>
-      <div className="flex items-center space-x-4 my-6 w-full max-w-[300px] border border-black">
+      <div className="flex items-center space-x-4 my-3 w-full max-w-[300px] border border-black">
         <div className="relative w-full">
           <svg
             xmlns="http://www.w3.org/2000/svg"

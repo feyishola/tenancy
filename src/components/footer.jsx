@@ -9,7 +9,7 @@ import { IoMailSharp } from "react-icons/io5";
 
 const Footer = () => {
   return (
-    <footer className="w-full flex flex-col justify-center items-center border-t border-black pt-2 pb-5">
+    <footer className="w-full flex flex-col justify-center items-center border-t border-black pt-2 pb-5 font-unna">
       <div className="w-full max-w-[1797px] flex flex-col md:flex-row justify-between items-center md:items-start px-4 md:px-[62px] pt-2 md:pt-[15px] gap-6 md:gap-0">
         
         {/* Logo Section */}
@@ -33,16 +33,16 @@ const Footer = () => {
         {/* Company & Support Section */}
         <div className="flex flex-row gap-5 justify-between">
           <div>
-            <p className="font-semibold">Company</p>
-            <ul className="list-none mt-2 space-y-2 text-sm">
+            <p className="font-semibold text-start">Company</p>
+            <ul className="list-none mt-2 space-y-2 text-sm text-start">
               <li className="cursor-pointer hover:text-gray-600">About Us</li>
               <li className="cursor-pointer hover:text-gray-600">Locations we cover</li>
               <li className="cursor-pointer hover:text-gray-600">Read our Guidelines</li>
             </ul>
           </div>
           <div>
-            <p className="font-semibold">Support</p>
-            <p className="mt-2 cursor-pointer hover:text-gray-600">Help Center</p>
+            <p className="font-semibold text-start">Support</p>
+            <p className="mt-2 cursor-pointer hover:text-gray-600 text-start">Help Center</p>
           </div>
         </div>
       </div>
