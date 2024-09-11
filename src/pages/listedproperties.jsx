@@ -37,7 +37,7 @@ const Listedproperties = () => {
 }
 
 function PropertiesPage(){
-    const data = false
+    const data = true
     return(
         <>
             {data? <h1>Data Fectected Successfully</h1> : <Zerodata image={nohoom} message={"You do not have a home listed yet."} btnTxt={"Add a new Listing"}/> }
