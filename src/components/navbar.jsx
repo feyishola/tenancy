@@ -9,7 +9,7 @@ import { CgProfile } from "react-icons/cg";
 const Navbar = () => {
   return (
     <nav className="w-full flex flex-col md:flex-row justify-center items-center border-b border-b-gray-300 bg-[primaryColor] font-unna">
-      <div className="w-full max-w-[1797px] flex flex-col md:flex-row justify-between items-center px-4 md:px-[62px] pt-4">
+      <div className="w-full max-w-[1797px] flex flex-col md:flex-row justify-between items-center px-4 md:px-[62px] pt-1 md:pt-4">
         {/* Logo Section */}
         <div className="flex gap-2 items-center mb-4 md:mb-0">
           <img src={icon} alt="icon" className="w-[40px] h-[40px] pb-1" />

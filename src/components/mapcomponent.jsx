@@ -23,13 +23,6 @@ const UpdateMapCenter = ({ coordinates }) => {
   return null;
 };
 
-
-
-/*
-    To use this, i need to house it in a div such as w-full md:w-[60%]
-
-
-*/
 const Mapcomponent = ({
   location = 'No.4, Maha Close, Barnawa Kaduna',
   latitude = '10.47661',
@@ -41,26 +34,27 @@ const Mapcomponent = ({
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (location) {
-      const fetchCoordinates = async () => {
-        try {
-          const response = await axios.get(
-            `https://api.opencagedata.com/geocode/v1/json?q=${location}&key=${process.env.REACT_APP_OPENCAGE_API}`
-          );
+    const fetchCoordinates = async () => {
+      try {
+        const response = await axios.get(
+          `https://api.opencagedata.com/geocode/v1/json?q=${location}&key=${process.env.REACT_APP_APIKEY}`
+        );
 
-          if (response.data.results && response.data.results.length > 0) {
-            const { lat, lng } = response.data.results[0].geometry;
-            console.log({lat,lng});
-            
-            setCoordinates([lat, lng]);
-          } else {
-            setError('No results found for the provided address');
-          }
-        } catch (error) {
-          console.error('Error fetching coordinates: ', error);
-          setError('Error fetching coordinates.');
+        if (response.data.results && response.data.results.length > 0) {
+          const { lat, lng } = response.data.results[0].geometry;
+          // console.log({ lat, lng });
+
+          setCoordinates([lat, lng]);
+        } else {
+          setError('No results found for the provided address');
         }
-      };
+      } catch (error) {
+        console.error('Error fetching coordinates: ', error);
+        setError('Error fetching coordinates.');
+      }
+    };
+
+    if (location) {
       fetchCoordinates();
     } else {
       setCoordinates([latitude, longitude]);
@@ -70,14 +64,14 @@ const Mapcomponent = ({
   return (
     <div>
       {error ? error : (
-        <div className={`w-full md:w-[${mapWidth}] h-[${mapHeight}]`}>
+        <div style={{ width: mapWidth, height: mapHeight }}> 
           {coordinates && (
             <MapContainer
               center={coordinates}
               zoom={13}
               className="h-full w-full"
             >
-              <UpdateMapCenter coordinates={coordinates} /> {/* Updates the map center */}
+              <UpdateMapCenter coordinates={coordinates} />
               <TileLayer
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

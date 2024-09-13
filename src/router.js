@@ -7,6 +7,9 @@ import LayoutWitoutFooter from "./layout/layoutwithoutfooter";
 import Listedproperties from "./pages/listedproperties";
 import MapPage from "./pages/mappage";
 import Mapform from "./components/mapform";
+import Propertydetails from "./pages/propertydetails";
+import LayoutWithoutCovid from "./layout/layoutwithoutcovid";
+import NotificationsPage from "./pages/notificationspage";
 
 const router = createBrowserRouter([
   {
@@ -84,6 +87,24 @@ const router = createBrowserRouter([
         element: <Mapform />,
       },
     ],
+  },
+  {
+    path: "/propertydetails",
+    element: (
+      <LayoutWithoutCovid>
+        <Outlet />
+      </LayoutWithoutCovid>
+    ),
+    children: [
+      {
+        index: true,
+        element: <Propertydetails />,
+      },
+    ],
+  },
+  {
+    path: "/notifications",
+    element: <NotificationsPage />,
   },
 ]);
 export default router;

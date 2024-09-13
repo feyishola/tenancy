@@ -20,10 +20,10 @@ const Mapform = () => {
 
   return (
     <div className='flex justify-center w-full'>
-      <div className='cont max-w-[500px] md:w-[500px] min-h-[400px] border border-black mt-20'>
+      <div className='cont max-w-[500px] md:w-[500px] min-h-[400px] border border-black mt-20 bg-white'>
         <div className='flex flex-row justify-between border-b border-b-gray-400 w-full p-5'>
           <p>Location</p>
-          <div className='flex flex-row gap-1 items-center'>
+          <div className='flex flex-row gap-1 items-center cursor-pointer' onClick={()=>console.log("back")}>
             <MdKeyboardArrowLeft/>
             Back
           </div>
