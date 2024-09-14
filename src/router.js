@@ -2,7 +2,7 @@ import { createBrowserRouter, Outlet } from "react-router-dom";
 import Home from "./pages/home";
 import Layout from "./layout/layout";
 import Accountformtext from "./pages/Accountformtext";
-import ImageGridTexts from "./pages/ImageGridTexts"
+import ImageGridTexts from "./pages/ImageGridTexts";
 import LayoutWithSearch from "./layout/layoutwithsearch";
 import FormLayout from "./layout/formlayout";
 import LayoutWitoutFooter from "./layout/layoutwithoutfooter";
@@ -27,14 +27,6 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home />,
-      },
-      {
-        path: "divine",
-        element: <div>divine work</div>,
-      },
-      {
-        path: "godwin",
-        element: <div>godwin work</div>,
       },
       {
         path: "blessing",
@@ -73,7 +65,7 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: "/nofooter",
+    path: "/listedproperties",
     element: (
       <LayoutWitoutFooter>
         <Outlet />
@@ -84,10 +76,6 @@ const router = createBrowserRouter([
         index: true,
         element: <Listedproperties />,
       },
-      // {
-      //   path: "form1",
-      //   element: <Mapform />,
-      // },
     ],
   },
   {
