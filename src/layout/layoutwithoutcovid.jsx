@@ -1,13 +1,13 @@
 import React from 'react';
+import Navbar from '../components/navbar';
 import Footer from '../components/footer';
-import NavbarWithSearch from '../components/navbarwithsearch';
 
-const LayoutWithSearch = ({ children }) => {
+const LayoutWithoutCovid = ({ children }) => {
   return (
     <>
     <div className="min-h-screen flex flex-col max-w-[1797px] justify-center mx-auto my-0">
-      <NavbarWithSearch />
-      <main className="flex-grow px-[20px] md:px-[62px]">
+      <Navbar />
+      <main className="flex-grow px-[62px]">
         {children}
       </main>
       <Footer />
@@ -16,4 +16,4 @@ const LayoutWithSearch = ({ children }) => {
   );
 };
 
-export default LayoutWithSearch;
+export default LayoutWithoutCovid;
