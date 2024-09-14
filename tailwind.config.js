@@ -4,10 +4,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primaryColor: "",
+        primaryColor: "red",
       },
-      backgroundImage: {
-        "custom-gradient": "linear-gradient(90deg, #ECEBEB 0%, #FDFBFB 100%)",
+      fontFamily: {
+        unna: ["Unna", "serif"],
       },
     },
   },
