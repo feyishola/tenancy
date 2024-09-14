@@ -1,6 +1,8 @@
 import { createBrowserRouter, Outlet } from "react-router-dom";
 import Home from "./pages/home";
 import Layout from "./layout/layout";
+import Accountformtext from "./pages/Accountformtext";
+import ImageGridTexts from "./pages/ImageGridTexts"
 
 const router = createBrowserRouter([
   {
@@ -25,7 +27,11 @@ const router = createBrowserRouter([
       },
       {
         path: "blessing",
-        element: <div>blessing work</div>,
+        element: <Accountformtext />,
+      },
+      {
+        path: "uyo",
+        element: <ImageGridTexts />,
       },
     ],
   },
