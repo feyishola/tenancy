@@ -4,6 +4,8 @@ import Layout from "./layout/layout";
 import LayoutWithSearch from "./layout/layoutwithsearch";
 import LayoutWitoutFooter from "./layout/layoutwithoutfooter";
 import Listedproperties from "./pages/listedproperties";
+import AvailableListing from "./pages/availableListing";
+import Profile from "./pages/Profile/Profile";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +32,10 @@ const router = createBrowserRouter([
         path: "blessing",
         element: <div>blessing work</div>,
       },
+      {
+        path: "profile",
+        element: <Profile />,
+      },
     ],
   },
   {
@@ -43,6 +49,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <h1 className="font-unna">for SearchBar Pages</h1>,
+      },
+      {
+        path: "blessing",
+        element: <AvailableListing />,
       },
     ],
   },
