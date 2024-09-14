@@ -1,7 +1,13 @@
 import { createBrowserRouter, Outlet } from "react-router-dom";
 import Home from "./pages/home";
 import Layout from "./layout/layout";
-import Login from "./components/Login";
+import Login from "./components/LoginPage/Login";
+import CreateAccountForm from "./components/CreateAccountPage/CreateAccountForm";
+import SelectForm from "./components/FormPropertyPages/SelectPropertyForm";
+import ImageUpload from "./components/ImageUploaderPage/ImageUploader";
+import ListingDetails from "./components/ListingFormDetail/ListingDetails";
+
+
 
 const router = createBrowserRouter([
   {
@@ -22,7 +28,12 @@ const router = createBrowserRouter([
       },
       {
         path: "godwin",
-        element: <div><Login/></div>,
+        // element: <div><Login/></div>,
+        // element: <div><CreateAccountForm/></div>,
+        // element: <div><SelectForm/></div>,
+        // element: <div><ImageUpload/></div>,
+        element: <div><ListingDetails/></div>,
+
       },
       {
         path: "blessing",

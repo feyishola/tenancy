@@ -1,9 +1,8 @@
-
-
 import React, { useReducer } from 'react';
-import './Login.css';
-import { FaFacebook, FaGoogle } from "react-icons/fa";
+import { FaFacebookSquare, FaGoogle } from "react-icons/fa";
 import { IoCloseCircleOutline } from "react-icons/io5";
+import './Login.css'
+
 
 // Initial state for the form
 const initialState = {
@@ -26,7 +25,7 @@ const reducer = (state, action) => {
   }
 };
 
-const Login = () => {
+const LoginForm = () => { // Rename from 'Login' to 'LoginForm'
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const handleEmailChange = (e) => {
@@ -50,7 +49,7 @@ const Login = () => {
 
   return (
     <div className="login-container">
-      <button className="close-btn">Close <IoCloseCircleOutline /></button>
+      <button className="close-btn">Close <span className='close-icon'> <IoCloseCircleOutline /> </span></button>
       <br />
       <br />
       <br />
@@ -67,13 +66,13 @@ const Login = () => {
 
       <div className="social-login">
         <button className="facebook-btn">
-          <FaFacebook className='icon' /> Login With Facebook
+        < FaFacebookSquare /> Login With Facebook
         </button>
         <button className="google-btn">
           <FaGoogle className='icon' /> Login With Google
         </button>
       </div>
-
+        <hr />
       <form onSubmit={handleSubmit} className="login-form">
         <label htmlFor="email">EMAIL ADDRESS</label>
         <input
@@ -109,4 +108,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginForm; // Make sure to export the renamed component
