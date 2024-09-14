@@ -1,6 +1,8 @@
 import { createBrowserRouter, Outlet } from "react-router-dom";
 import Home from "./pages/home";
 import Layout from "./layout/layout";
+import Accountformtext from "./pages/Accountformtext";
+import ImageGridTexts from "./pages/ImageGridTexts"
 import LayoutWithSearch from "./layout/layoutwithsearch";
 import FormLayout from "./layout/formlayout";
 import LayoutWitoutFooter from "./layout/layoutwithoutfooter";
@@ -36,7 +38,11 @@ const router = createBrowserRouter([
       },
       {
         path: "blessing",
-        element: <div>blessing work</div>,
+        element: <Accountformtext />,
+      },
+      {
+        path: "uyo",
+        element: <ImageGridTexts />,
       },
       {
         path: "profile",
