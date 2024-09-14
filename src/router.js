@@ -14,6 +14,11 @@ import Mapform from "./components/mapform";
 import Propertydetails from "./pages/propertydetails";
 import LayoutWithoutCovid from "./layout/layoutwithoutcovid";
 import NotificationsPage from "./pages/notificationspage";
+import Login from "./components/LoginPage/Login";
+import CreateAccountForm from "./components/CreateAccountPage/CreateAccountForm";
+import SelectForm from "./components/FormPropertyPages/SelectPropertyForm";
+import ImageUpload from "./components/ImageUploaderPage/ImageUploader";
+import ListingDetails from "./components/ListingFormDetail/ListingDetails";
 
 const router = createBrowserRouter([
   {
@@ -53,6 +58,18 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <h1 className="font-unna">for SearchBar Pages</h1>,
+      },
+      {
+        path: "godwin",
+        // element: <div><Login/></div>,
+        // element: <div><CreateAccountForm/></div>,
+        // element: <div><SelectForm/></div>,
+        // element: <div><ImageUpload/></div>,
+        element: (
+          <div>
+            <ListingDetails />
+          </div>
+        ),
       },
       {
         path: "blessing",
