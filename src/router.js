@@ -5,6 +5,8 @@ import LayoutWithSearch from "./layout/layoutwithsearch";
 import FormLayout from "./layout/formlayout";
 import LayoutWitoutFooter from "./layout/layoutwithoutfooter";
 import Listedproperties from "./pages/listedproperties";
+import AvailableListing from "./pages/availableListing";
+import Profile from "./pages/Profile/Profile";
 import MapPage from "./pages/mappage";
 import Mapform from "./components/mapform";
 import Propertydetails from "./pages/propertydetails";
@@ -36,6 +38,10 @@ const router = createBrowserRouter([
         path: "blessing",
         element: <div>blessing work</div>,
       },
+      {
+        path: "profile",
+        element: <Profile />,
+      },
     ],
   },
   {
@@ -49,6 +55,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <h1 className="font-unna">for SearchBar Pages</h1>,
+      },
+      {
+        path: "blessing",
+        element: <AvailableListing />,
       },
       {
         path: "firstmap",

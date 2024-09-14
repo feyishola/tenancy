@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import nobooking from '../svgs/nobook.svg'
 import nohoom from '../svgs/nohome.svg'
 import Zerodata from '../components/zerodata'
+import TenancyDetails from "../components/PaymentInfo/TenancyDetails.js"
+import TourRequest from "../components/PaymentInfo/ToureRequest.js"
 
 const Listedproperties = () => {
     const [display, setDisplay] = useState(<PropertiesPage/>)
@@ -37,19 +39,19 @@ const Listedproperties = () => {
 }
 
 function PropertiesPage(){
-    const data = false
+    const data = true
     return(
         <>
-            {data? <h1>Data Fectected Successfully</h1> : <Zerodata image={nohoom} message={"You do not have a home listed yet."} btnTxt={"Add a new Listing"}/> }
+            {data? <TenancyDetails /> : <Zerodata image={nohoom} message={"You do not have a home listed yet."} btnTxt={"Add a new Listing"}/> }
         </>
     )
 }
 
 function PaymentPage(){
-    const data = false
+    const data = true
     return(
         <>
-           {data? <h1>Data Fectected Successfully</h1> : <Zerodata image={nohoom} message={"You do not have a home listed yet."} btnTxt={"Add a new Listing"}/> }
+           {data? <TourRequest /> : <Zerodata image={nohoom} message={"You do not have a home listed yet."} btnTxt={"Add a new Listing"}/> }
                                                         
         </>
     )
@@ -59,7 +61,7 @@ function TourPage(){
     const data = false
     return(
         <div>
-              {data? <h1>Data Fectected Successfully</h1> : <Zerodata image={nobooking} message={"No one has booked a tour request yet."} btnTxt={null}/> }
+              {data? <TenancyDetails /> : <Zerodata image={nobooking} message={"No one has booked a tour request yet."} btnTxt={null}/> }
         </div>
     )
 }
