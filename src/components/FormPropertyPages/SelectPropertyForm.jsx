@@ -58,7 +58,7 @@ const SelectPropertyForm = () => {
   };
 
   return (
-    <div className="property-form-container">
+    <div className="property-form-container mt-20 bg-white" style={{marginTop:"60px"}}>
         <div className="header-text">
             <h2>Tell Us More About Your Property</h2>
             <span className='back-btnicon'><button className="back-btn"> <FaAngleLeft />Back</button></span>

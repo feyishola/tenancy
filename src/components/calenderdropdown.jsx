@@ -12,13 +12,13 @@ const CalendarDropdown = ({placeholder,width="300px"}) => {
   };
 
   return (
-    <div className={`max-w-[${width}] md:w-[${width}] border border-black flex items-center bg-white p-2`}>
+    <div className={`max-w-[${width}] md:w-[${width}] border border-black flex items-center bg-white p-2 cursor-pointer`}>
       <img src={calenderIcon} alt='calendar-icon' className={`max-w-[50px] max-h-[50px] md:w-[50px] md:h-[50px]`}/>
       <DatePicker
         selected={selectedDate}
         onChange={handleDateChange}
         placeholderText={placeholder}
-        className="p-2 w-full focus-visible:outline-none"
+        className="p-2 w-full focus-visible:outline-none cursor-pointer"
         dateFormat="dd/MM/yyyy"
       />
       <IoIosArrowDown/>

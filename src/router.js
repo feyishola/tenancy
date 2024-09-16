@@ -17,8 +17,14 @@ import NotificationsPage from "./pages/notificationspage";
 import Login from "./components/LoginPage/Login";
 import CreateAccountForm from "./components/CreateAccountPage/CreateAccountForm";
 import SelectForm from "./components/FormPropertyPages/SelectPropertyForm";
-import ImageUpload from "./components/ImageUploaderPage/ImageUploader";
 import ListingDetails from "./components/ListingFormDetail/ListingDetails";
+import Shortstay from "./pages/shortstay";
+import Propertydetailsowner from "./pages/propertydetailsowner";
+import Model3d from "./pages/model3d";
+import ListingType from "./components/listingtype";
+import ListingTypeDetails from "./components/listingdetails";
+import LeaseType from "./components/leasetype";
+import ImageUploader from "./components/ImageUploaderPage/ImageUploader";
 
 const router = createBrowserRouter([
   {
@@ -34,11 +40,11 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "blessing",
+        path: "accountform",
         element: <Accountformtext />,
       },
       {
-        path: "uyo",
+        path: "imagegrid",
         element: <ImageGridTexts />,
       },
       {
@@ -56,27 +62,31 @@ const router = createBrowserRouter([
     ),
     children: [
       {
-        index: true,
-        element: <h1 className="font-unna">for SearchBar Pages</h1>,
+        path: "loggin 3",
+        element: <Login />,
       },
       {
-        path: "godwin",
-        // element: <div><Login/></div>,
-        // element: <div><CreateAccountForm/></div>,
-        // element: <div><SelectForm/></div>,
-        // element: <div><ImageUpload/></div>,
-        element: (
-          <div>
-            <ListingDetails />
-          </div>
-        ),
+        path: "createaccountg 2",
+        element: <CreateAccountForm />,
       },
       {
-        path: "blessing",
+        path: "aboutproperty",
+        element: <SelectForm />,
+      },
+      {
+        path: "listdetailg 1",
+        element: <ListingDetails />,
+      },
+      {
+        path: "availablelisting",
         element: <AvailableListing />,
       },
       {
-        path: "firstmap",
+        path: "shortstay",
+        element: <Shortstay />,
+      },
+      {
+        path: "availablelistingmap",
         element: <MapPage />,
       },
     ],
@@ -107,6 +117,22 @@ const router = createBrowserRouter([
         index: true,
         element: <Mapform />,
       },
+      {
+        path: "listingtype",
+        element: <ListingType />,
+      },
+      {
+        path: "listingtypedetails",
+        element: <ListingTypeDetails />,
+      },
+      {
+        path: "leasetype",
+        element: <LeaseType />,
+      },
+      {
+        path: "uploadimages",
+        element: <ImageUploader />,
+      },
     ],
   },
   {
@@ -120,6 +146,14 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Propertydetails />,
+      },
+      {
+        path: "owner",
+        element: <Propertydetailsowner />,
+      },
+      {
+        path: "model",
+        element: <Model3d />,
       },
     ],
   },

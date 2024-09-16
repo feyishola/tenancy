@@ -6,7 +6,7 @@
 .header {
   display: grid;
   grid-template-columns: 1fr;
-  max-width: 1200px;
+  /* max-width: 1200px; */
   padding: 15px 20px;
 }
 
@@ -368,7 +368,7 @@ img {
   .pricee {
     display: none;
   }
-  .avail{
+  .avail {
     display: none;
   }
 }
