@@ -2,11 +2,14 @@
 import React, { useState } from 'react';
 import './ImageUploader.css';
 import { FaAngleLeft } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom';
 
 
 const ImageUploader = () => {
   const [images, setImages] = useState([]);
   const [errorMessage, setErrorMessage] = useState('');
+
+  const navigate = useNavigate()
 
   // Handler for uploading images
   const handleImageUpload = (e) => {
@@ -37,13 +40,19 @@ const ImageUploader = () => {
     e.preventDefault();
   };
 
+  const handleSubmit = () => {
+    console.log("pictures uploaded");
+    navigate("/searchbar/aboutproperty")
+  };
+
   return (
     <div className="upload-page-container">
       {/* Header Section */}
       <div className="header-container">
         <h2>Upload Images</h2>
         <span>
-        <a href="#" className="back-link"> <FaAngleLeft /> Back</a>
+          {/* Pls remove this a tag */}
+        <a href="/" className="back-link"> <FaAngleLeft /> Back</a> 
         </span>
       </div>
 
@@ -92,6 +101,7 @@ const ImageUploader = () => {
         <button 
           className={`continue-btn ${images.length > 0 ? 'active' : ''}`} 
           disabled={images.length === 0}
+          onClick={handleSubmit}
         >
           Continue
         </button>

@@ -52,7 +52,7 @@ const TenancyDetails = () => {
   ];
   const getStatusColor = (type) => {
     if (type.toLowerCase().includes("short")) {
-      return  "#DEDEEB"; // for rendering color for short lease
+      return "#DEDEEB"; // for rendering color for short lease
     } else if (type.toLowerCase().includes("rent")) {
       return "#EBE7DE"; // for rendering color for rent
     } else if (type.toLowerCase().includes("Others")) {

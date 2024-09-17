@@ -1,14 +1,18 @@
-import React, { useState } from 'react'
+import React, { useState, Suspense, lazy } from 'react' 
 import { MdKeyboardArrowLeft } from "react-icons/md";
 import img1 from '../svgs/white1.svg'
 import img2 from '../svgs/white2.svg'
 import img3 from '../svgs/white3.svg'
 import ImageCarousel from '../components/imagecarousel';
 import CalendarDropdown from '../components/calenderdropdown';
-import Mapcomponent from '../components/mapcomponent';
+// import Mapcomponent from '../components/mapcomponent';
+const Mapcomponent = lazy(() => import('../components/mapcomponent'));
 
 const Propertydetails = () => {
-  const [address, setAddress] = useState('Ahmadu Bello University, Zaria');
+  const defaultLocations = [
+    { address: 'No.4, Maha Close, Barnawa Kaduna', lat: '10.47661', lng: '7.43039' },
+  ];
+  const [address, setAddress] = useState(defaultLocations);
   return (
     <div>
         <div className='flex flex-row justify-between  w-full py-5'>
@@ -67,7 +71,7 @@ const Propertydetails = () => {
                 </div>
                 
                 {/* Note that i done need to call the setAddress here, its just a placeholder for now */}
-                <button className='bg-[#00A167] text-white p-3 w-[250px]' onClick={()=>{setAddress("Lagos state University")}}>Book Property</button> 
+                <button className='bg-[#00A167] text-white p-3 w-[250px]' onClick={()=>{setAddress([{address:"Lagos state University"}])}}>Book Property</button> 
             </div>
           </div>
         
@@ -106,7 +110,9 @@ const Propertydetails = () => {
                       Kaduna, Nigeria
                     </p>
                     <div className='w-full'>
-                      <Mapcomponent mapHeight='200px' location={address}/>
+                    <Suspense fallback={<div>Loading map...</div>}>
+                      <Mapcomponent mapHeight='200px' locations={address}/>
+                    </Suspense>
                     </div>
                   </div>
                   <div className='attractions text-start mt-24 pb-5' style={{borderBottom:"1px solid black"}}>
