@@ -25,6 +25,7 @@ import ListingType from "./components/listingtype";
 import ListingTypeDetails from "./components/listingdetails";
 import LeaseType from "./components/leasetype";
 import ImageUploader from "./components/ImageUploaderPage/ImageUploader";
+import PropertyDescription from "./components/propertydescription";
 
 const router = createBrowserRouter([
   {
@@ -74,7 +75,11 @@ const router = createBrowserRouter([
         element: <SelectForm />,
       },
       {
-        path: "listdetailg 1",
+        path: "propertydescription",
+        element: <PropertyDescription />,
+      },
+      {
+        path: "listdetailg",
         element: <ListingDetails />,
       },
       {

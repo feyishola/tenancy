@@ -3,12 +3,14 @@ import React, { useState } from 'react';
 import Select from 'react-select';
 import './SelectForm.css';
 import { FaAngleLeft } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom';
 
 const SelectPropertyForm = () => {
   // State for the form inputs
   const [bedrooms, setBedrooms] = useState('');
   const [bathrooms, setBathrooms] = useState('');
   const [selectedAmenities, setSelectedAmenities] = useState([]);
+  const navigate = useNavigate()
 
   // Options for bedrooms and bathrooms
   const bedroomOptions = [
@@ -55,6 +57,7 @@ const SelectPropertyForm = () => {
       amenities: selectedAmenities,
     };
     console.log('Form Data:', formData);
+    navigate("/searchbar/propertydescription")
   };
 
   return (
