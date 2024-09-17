@@ -112,8 +112,8 @@ const AccountForm = () => {
     <div className="form-container">
       <div class="content">
         <div class="head">
-          <header>
-            <h2>Create Account</h2>
+          <header class="headert">
+            <h2 class="h2t">Create Account</h2>
             <button className="close-btn" onClick={handleCloseForm}>
               close: x
             </button>{" "}
@@ -121,14 +121,14 @@ const AccountForm = () => {
           </header>
         </div>
       </div>
-      <form onSubmit={handleSubmit}>
+      <form class="formt"  onSubmit={handleSubmit}>
         <div class="flex justfy-start">
           <button type="button" class="btn ml-0">
             <span class="back"> ! Back</span>
           </button>
         </div>
 
-        <label class="flex justfy-start">YOUR NAME</label>
+        <label className="labelt">YOUR NAME</label>
         <input
           type="text"
           name="name"
@@ -136,16 +136,18 @@ const AccountForm = () => {
           value={formData.name}
           onChange={handleInputChange}
           placeholder="Your name"
+          className="inputt"
         />
         {errors.name && <p className="error-text">{errors.name}</p>}
 
-        <label class="flex justfy-start">SURNAME</label>
+        <label className="labelt">SURNAME</label>
         <input
           type="text"
           name="surname"
           value={formData.surname}
           onChange={handleInputChange}
           placeholder="Surname"
+          className="inputt"
         />
         
         <p class="flex justfy-start">
@@ -154,13 +156,14 @@ const AccountForm = () => {
 
         {errors.surname && <p className="error-text">{errors.surname}</p>}
 
-        <label class="flex justfy-start">DATE OF BIRTH</label>
+        <label class="labelt">DATE OF BIRTH</label>
         <input
           type="text"
           name="dob"
           value={formData.dob}
           onChange={handleInputChange}
           placeholder="YYYY-MM-DD"
+          className="inputt"
         />
         <p className="password-hint ">
           You need to be 18+ to use our platform .This information is for
@@ -170,7 +173,7 @@ const AccountForm = () => {
 
         {errors.dob && <p className="error-text">{errors.dob}</p>}
 
-        <label class="flex justfy-start">CREATE PASSWORD</label>
+        <label class="labelt">CREATE PASSWORD</label>
         
         <div className="password-input-wrapper" style={{ position: "relative" }}>
   <input
@@ -180,6 +183,7 @@ const AccountForm = () => {
     onChange={handleInputChange}
     placeholder="Create a new password"
     className="password-input"
+    
   />
   <button
     type="button"
@@ -210,12 +214,13 @@ const AccountForm = () => {
             </p></div>
         </div>
         <p class="policy">By selecting "I agree below, I agree to RealHubAfrica's <a href='#'>Terms of service,</a><a href="#">Payments Terms of service,</a> and <a href="#">Privacy Policy.</a></p>
-        <label>
+        <label class="labelt">
           <input
             type="checkbox"
             name="agreed"
             checked={formData.agreed}
             onChange={handleInputChange}
+            className="inputt"
           />
           <span class="agree">I agree</span>
         </label>
