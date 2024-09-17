@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { PiWarningCircleThin } from "react-icons/pi";
+import { MdKeyboardArrowLeft } from "react-icons/md";
 
 const ListingTypeDetails = () => {
   const [selectedType, setSelectedType] = useState('');
@@ -43,6 +44,10 @@ const ListingTypeDetails = () => {
       <div className='cont max-w-[700px] md:w-[40%] border border-black mt-20 bg-white'>
         <div className='flex flex-row justify-between border-b border-b-gray-400 w-full p-5'>
           <p>Listing details</p>
+          <div className='flex flex-row gap-1 items-center cursor-pointer' onClick={() => navigate(-1)}>
+            <MdKeyboardArrowLeft />
+            Back
+          </div>
         </div>
         <div className='p-5 flex flex-col items-start'>
           <label className='my-4'>Select your type of listing:</label>

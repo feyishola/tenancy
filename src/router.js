@@ -26,6 +26,8 @@ import ListingTypeDetails from "./components/listingdetails";
 import LeaseType from "./components/leasetype";
 import ImageUploader from "./components/ImageUploaderPage/ImageUploader";
 import PropertyDescription from "./components/propertydescription";
+import ImageGrid from "./components/ImageGrid";
+import TalkNumbers from "./components/talknumbers";
 
 const router = createBrowserRouter([
   {
@@ -79,7 +81,7 @@ const router = createBrowserRouter([
         element: <PropertyDescription />,
       },
       {
-        path: "listdetailg",
+        path: "listdetailg 1",
         element: <ListingDetails />,
       },
       {
@@ -137,6 +139,14 @@ const router = createBrowserRouter([
       {
         path: "uploadimages",
         element: <ImageUploader />,
+      },
+      {
+        path: "previewimages",
+        element: <ImageGrid />,
+      },
+      {
+        path: "price",
+        element: <TalkNumbers />,
       },
     ],
   },

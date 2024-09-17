@@ -1,12 +1,14 @@
 import React, { useState, lazy, Suspense } from 'react';
 import { MdKeyboardArrowLeft } from "react-icons/md";
 import { PiWarningCircleThin } from "react-icons/pi";
+import { useNavigate } from 'react-router-dom';
 const Mapcomponent = lazy(()=>import("./mapcomponent"))
 
 
 const Mapform = () => {
   const [address, setAddress] = useState('');
   const [inputValue, setInputValue] = useState('');
+  const navigate = useNavigate();
 
   // Default locations to show before the user inputs anything
   const defaultLocations = [
@@ -21,6 +23,7 @@ const Mapform = () => {
     if (inputValue.trim()) {
       setAddress(inputValue);
       setInputValue('');
+      navigate("/form/price")
     }
   };
 
@@ -34,7 +37,7 @@ const Mapform = () => {
       <div className='cont max-w-[700px] md:w-[40%]  min-h-[400px] border border-black my-20 bg-white'>
         <div className='flex flex-row justify-between border-b border-b-gray-400 w-full p-5'>
           <p>Location</p>
-          <div className='flex flex-row gap-1 items-center cursor-pointer' onClick={() => console.log("back")}>
+          <div className='flex flex-row gap-1 items-center cursor-pointer' onClick={() => navigate(-1)}>
             <MdKeyboardArrowLeft />
             Back
           </div>

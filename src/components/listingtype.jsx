@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { MdKeyboardArrowLeft } from "react-icons/md";
 
 const ListingType = () => {
   const [selectedType, setSelectedType] = useState('');
@@ -29,6 +30,10 @@ const ListingType = () => {
       <div className='cont max-w-[700px] md:w-[40%]  border border-black mt-20 bg-white'>
         <div className='flex flex-row justify-between border-b border-b-gray-400 w-full p-5'>
           <p>Select your type of listing.</p>
+          <div className='flex flex-row gap-1 items-center cursor-pointer' onClick={() => navigate(-1)}>
+            <MdKeyboardArrowLeft />
+            Back
+          </div>
         </div>
         <div className='p-5 flex flex-col items-start'>
           <select
