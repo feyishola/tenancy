@@ -2,7 +2,7 @@ import { createBrowserRouter, Outlet } from "react-router-dom";
 import Home from "./pages/home";
 import Layout from "./layout/layout";
 import Accountformtext from "./pages/Accountformtext";
-import ImageGridTexts from "./pages/ImageGridTexts"
+import ImageGridTexts from "./pages/ImageGridTexts";
 import LayoutWithSearch from "./layout/layoutwithsearch";
 import FormLayout from "./layout/formlayout";
 import LayoutWitoutFooter from "./layout/layoutwithoutfooter";
@@ -14,6 +14,20 @@ import Mapform from "./components/mapform";
 import Propertydetails from "./pages/propertydetails";
 import LayoutWithoutCovid from "./layout/layoutwithoutcovid";
 import NotificationsPage from "./pages/notificationspage";
+import Login from "./components/LoginPage/Login";
+import CreateAccountForm from "./components/CreateAccountPage/CreateAccountForm";
+import SelectForm from "./components/FormPropertyPages/SelectPropertyForm";
+import ListingDetails from "./components/ListingFormDetail/ListingDetails";
+import Shortstay from "./pages/shortstay";
+import Propertydetailsowner from "./pages/propertydetailsowner";
+import Model3d from "./pages/model3d";
+import ListingType from "./components/listingtype";
+import ListingTypeDetails from "./components/listingdetails";
+import LeaseType from "./components/leasetype";
+import ImageUploader from "./components/ImageUploaderPage/ImageUploader";
+import PropertyDescription from "./components/propertydescription";
+import ImageGrid from "./components/ImageGrid";
+import TalkNumbers from "./components/talknumbers";
 
 const router = createBrowserRouter([
   {
@@ -29,19 +43,11 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "divine",
-        element: <div>divine work</div>,
-      },
-      {
-        path: "godwin",
-        element: <div>godwin work</div>,
-      },
-      {
-        path: "blessing",
+        path: "accountform",
         element: <Accountformtext />,
       },
       {
-        path: "uyo",
+        path: "imagegrid",
         element: <ImageGridTexts />,
       },
       {
@@ -59,21 +65,41 @@ const router = createBrowserRouter([
     ),
     children: [
       {
-        index: true,
-        element: <h1 className="font-unna">for SearchBar Pages</h1>,
+        path: "loggin 3",
+        element: <Login />,
       },
       {
-        path: "blessing",
+        path: "createaccountg 2",
+        element: <CreateAccountForm />,
+      },
+      {
+        path: "aboutproperty",
+        element: <SelectForm />,
+      },
+      {
+        path: "propertydescription",
+        element: <PropertyDescription />,
+      },
+      {
+        path: "listdetailg 1",
+        element: <ListingDetails />,
+      },
+      {
+        path: "availablelisting",
         element: <AvailableListing />,
       },
       {
-        path: "firstmap",
+        path: "shortstay",
+        element: <Shortstay />,
+      },
+      {
+        path: "availablelistingmap",
         element: <MapPage />,
       },
     ],
   },
   {
-    path: "/nofooter",
+    path: "/listedproperties",
     element: (
       <LayoutWitoutFooter>
         <Outlet />
@@ -84,10 +110,6 @@ const router = createBrowserRouter([
         index: true,
         element: <Listedproperties />,
       },
-      // {
-      //   path: "form1",
-      //   element: <Mapform />,
-      // },
     ],
   },
   {
@@ -102,6 +124,30 @@ const router = createBrowserRouter([
         index: true,
         element: <Mapform />,
       },
+      {
+        path: "listingtype",
+        element: <ListingType />,
+      },
+      {
+        path: "listingtypedetails",
+        element: <ListingTypeDetails />,
+      },
+      {
+        path: "leasetype",
+        element: <LeaseType />,
+      },
+      {
+        path: "uploadimages",
+        element: <ImageUploader />,
+      },
+      {
+        path: "previewimages",
+        element: <ImageGrid />,
+      },
+      {
+        path: "price",
+        element: <TalkNumbers />,
+      },
     ],
   },
   {
@@ -115,6 +161,14 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Propertydetails />,
+      },
+      {
+        path: "owner",
+        element: <Propertydetailsowner />,
+      },
+      {
+        path: "model",
+        element: <Model3d />,
       },
     ],
   },

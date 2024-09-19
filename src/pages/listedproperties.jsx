@@ -4,10 +4,12 @@ import nohoom from '../svgs/nohome.svg'
 import Zerodata from '../components/zerodata'
 import TenancyDetails from "../components/PaymentInfo/TenancyDetails.js"
 import TourRequest from "../components/PaymentInfo/ToureRequest.js"
+import { useNavigate } from 'react-router-dom'
 
 const Listedproperties = () => {
     const [display, setDisplay] = useState(<PropertiesPage/>)
-    const [active, setActive] = useState("Properties")
+    const [active, setActive] = useState("Properties");
+    const navigate = useNavigate()
 
     const handleSubmit = (content,buttonName)=>{
         setDisplay(content)
@@ -19,7 +21,7 @@ const Listedproperties = () => {
         <div>
             <div className='flex flex-row justify-between font-unna border-b border-b-gray-400 mt-10 pb-5 items-center'>
                 <p>Your listed properties</p>
-                <button className='bg-black py-3 px-6 font-unna text-white'>Add a new Listing</button>
+                <button className='bg-black py-3 px-6 font-unna text-white' onClick={()=>navigate("/form/listingtype")}>Add a new Listing</button>
             </div>
         </div>
         <div className="h-auto font-unna">
@@ -39,7 +41,7 @@ const Listedproperties = () => {
 }
 
 function PropertiesPage(){
-    const data = true
+    const data = false
     return(
         <>
             {data? <TenancyDetails /> : <Zerodata image={nohoom} message={"You do not have a home listed yet."} btnTxt={"Add a new Listing"}/> }
@@ -58,7 +60,7 @@ function PaymentPage(){
 }
 
 function TourPage(){
-    const data = false
+    const data = true
     return(
         <div>
               {data? <TenancyDetails /> : <Zerodata image={nobooking} message={"No one has booked a tour request yet."} btnTxt={null}/> }

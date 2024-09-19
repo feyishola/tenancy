@@ -7,6 +7,7 @@ import circle from '../svgs/circle.svg'
 import info3 from '../svgs/Shor-term Stay.svg'
 import rent from '../svgs/Rent.svg'
 import listImg from '../svgs/listhome.svg'
+import { useNavigate } from 'react-router-dom'
 
 const reducer = (state,action)=>{
   switch (action.type) {
@@ -33,10 +34,12 @@ const Home = () => {
   }
   const[state, dispatch] = useReducer(reducer,initialState);
 
+  const navigate = useNavigate()
+
   return (
     <>
     <div className='flex flex-col md:flex-row justify-between gap-2'>
-        <div className='w-[170px] pt-5 text-start font-unna'>
+        <div className='w-[170px] pt-5 text-start font-unna text-2xl'>
           What would you like to do today?
         </div>
         <Searchinput/>
@@ -46,7 +49,7 @@ const Home = () => {
         <img src={img1} alt='img1' className={`w-full h-full object-cover filterimg ${state.firstImg && 'filternone'}`}/>
         <img src={circle} alt='circleimg' className={`w-[45px] h-[45px] absolute top-[-20px] right-[-15px] ${state.firstImg && 'hidden'} `}/>
         <div className={`bg-white  absolute top-[68%] p-3 left-[1%] md:left-[30%] ${state.showImg1 && 'hidden'}`} style={{border:"3px solid black"}} >
-          <img src={info3} alt='information' className=''/>
+          <img src={info3} alt='information' className='' onClick={()=>{navigate("/searchbar/shortstay")}}/>
         </div>
         
       </div>
@@ -54,13 +57,13 @@ const Home = () => {
         <img src={img2} alt='img2' className={`w-full h-full object-cover filterimg ${state.secondImg && 'filternone'}`}/>
         <img src={circle} alt='circleimg'  className={`w-[45px] h-[45px] absolute top-[-20px] right-[-15px] ${state.secondImg && 'hidden'} `}/>
         <div className={`bg-white  absolute top-[68%] p-3 left-[30%] ${state.showImg2 && 'hidden'}`} style={{border:"3px solid black"}} >
-          <img src={rent} alt='information' className=''/>
+          <img src={rent} alt='information' className='' onClick={()=>{navigate("/searchbar/availablelisting")}}/>
         </div>
       </div>
       <div className='w-full md:w-[30%] cursor-pointer relative' onClick={()=>dispatch({type:"THIRDIMG"})}>
         <img src={img3}  alt='img3' className={`w-full h-full object-cover filterimg ${state.thirdImg && 'filternone'}`}/>
         <img src={circle} alt='circleimg'  className={`w-[45px] h-[45px] absolute top-[-20px] right-[-15px] ${state.thirdImg && 'hidden'} `}/>
-        <img src={listImg} alt='information' className={`absolute top-[68%] p-3 left-[1%] md:left-[30%] ${state.showImg3 && 'hidden'}`}/>
+        <img src={listImg} alt='information' className={`absolute top-[68%] p-3 left-[1%] md:left-[30%] ${state.showImg3 && 'hidden'}`} onClick={()=>{navigate("/listedproperties")}}/>
        
       </div>
     </div>

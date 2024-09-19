@@ -16,72 +16,84 @@ L.Icon.Default.mergeOptions({
 const UpdateMapCenter = ({ coordinates }) => {
   const map = useMap();
   useEffect(() => {
-    if (coordinates) {
-      map.setView(coordinates);
+    if (coordinates && coordinates.length > 0) {
+      map.setView(coordinates[0]); // Center the map on the first coordinate
     }
   }, [coordinates, map]);
   return null;
 };
 
 const Mapcomponent = ({
-  location = 'No.4, Maha Close, Barnawa Kaduna',
-  latitude = '10.47661',
-  longitude = '7.43039',
+  locations = [
+    { address: 'No.4, Maha Close, Barnawa Kaduna', lat: '10.47661', lng: '7.43039' },
+    { address: 'No.5, Wuse II, Abuja', lat: '9.072264', lng: '7.491302' },
+    { address: 'No.6, Lekki Phase 1, Lagos', lat: '6.4315', lng: '3.4408' },
+    { address: 'No.6, Lekki Phase 1, Lagos', lat: '6.9999', lng: '3.7879' },
+  ],
   mapHeight = '700px',
   mapWidth = '100%',
 }) => {
-  const [coordinates, setCoordinates] = useState(null);
+  const [coordinates, setCoordinates] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchCoordinates = async () => {
       try {
-        const response = await axios.get(
-          `https://api.opencagedata.com/geocode/v1/json?q=${location}&key=${process.env.REACT_APP_APIKEY}`
+        const locationCoordinates = await Promise.all(
+          locations.map(async (location) => {
+            if (location.lat && location.lng) {
+              // If latitude and longitude are directly provided, use them
+              return { lat: location.lat, lng: location.lng, address: location.address };
+            } else {
+              // If only an address is provided, fetch lat/lng from the API
+              const response = await axios.get(
+                `https://api.opencagedata.com/geocode/v1/json?q=${location.address}&key=${process.env.REACT_APP_APIKEY}`
+              );
+              if (response.data.results && response.data.results.length > 0) {
+                const { lat, lng } = response.data.results[0].geometry;
+                return { lat, lng, address: location.address };
+              }
+            }
+            return null; // In case of error, return null
+          })
         );
-
-        if (response.data.results && response.data.results.length > 0) {
-          const { lat, lng } = response.data.results[0].geometry;
-          // console.log({ lat, lng });
-
-          setCoordinates([lat, lng]);
-        } else {
-          setError('No results found for the provided address');
-        }
+        setCoordinates(locationCoordinates.filter(Boolean)); // Filter out any failed results
+        setLoading(false); // Set loading to false once data is fetched
       } catch (error) {
         console.error('Error fetching coordinates: ', error);
         setError('Error fetching coordinates.');
+        setLoading(false);
       }
     };
 
-    if (location) {
+    // Only fetch coordinates if the locations array is provided
+    if (locations && locations.length > 0) {
       fetchCoordinates();
-    } else {
-      setCoordinates([latitude, longitude]);
     }
-  }, [location, longitude, latitude]);
+  }, [locations]);
 
   return (
-    <div>
-      {error ? error : (
-        <div style={{ width: mapWidth, height: mapHeight }}> 
-          {coordinates && (
-            <MapContainer
-              center={coordinates}
-              zoom={13}
-              className="h-full w-full"
-            >
-              <UpdateMapCenter coordinates={coordinates} />
-              <TileLayer
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-              />
-              <Marker position={coordinates}>
-                <Popup>{location}</Popup>
+    <div style={{ width: mapWidth, height: mapHeight }}>
+      {loading ? (
+        <p>Loading map...</p>
+      ) : error ? (
+        <p>{error}</p>
+      ) : (
+        coordinates.length > 0 && (
+          <MapContainer center={[coordinates[0].lat, coordinates[0].lng]} zoom={13} className="h-full w-full" maxZoom={18} minZoom={3}>
+            <UpdateMapCenter coordinates={coordinates.map(coord => [coord.lat, coord.lng])} />
+            <TileLayer
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            />
+            {coordinates.map((coord, index) => (
+              <Marker key={index} position={[coord.lat, coord.lng]}>
+                <Popup>{coord.address}</Popup>
               </Marker>
-            </MapContainer>
-          )}
-        </div>
+            ))}
+          </MapContainer>
+        )
       )}
     </div>
   );
