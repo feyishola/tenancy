@@ -28,6 +28,7 @@ import ImageUploader from "./components/ImageUploaderPage/ImageUploader";
 import PropertyDescription from "./components/propertydescription";
 import ImageGrid from "./components/ImageGrid";
 import TalkNumbers from "./components/talknumbers";
+import FirsAcccount from "./pages/FirsAcccount"
 
 const router = createBrowserRouter([
   {
@@ -54,6 +55,11 @@ const router = createBrowserRouter([
         path: "profile",
         element: <Profile />,
       },
+      {
+        path: "firstaccount",
+        element: <FirsAcccount />,
+      },
+
     ],
   },
   {
