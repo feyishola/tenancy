@@ -57,6 +57,7 @@
 }
 .star{
     cursor: pointer;
+    background-color: #fff;
 }
 
 .message-button {
@@ -81,6 +82,9 @@
 .rating-stars {
   font-size: 24px;
   cursor: pointer;
+}
+.rating-stars:active {
+  color: gold; /* Green */
 }
 
 .listings-title {
@@ -123,9 +127,9 @@
 }
 
 .listing-unavailable {
-  position: absolute;
-  background-color: red;
-  color: white;
+  /* position: absolute; */
+  background-color: white;
+  color: black;
   padding: 5px;
   font-size: 12px;
   top: 10px;

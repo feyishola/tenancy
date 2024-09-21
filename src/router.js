@@ -19,6 +19,8 @@ import CreateAccountForm from "./components/CreateAccountPage/CreateAccountForm"
 import SelectForm from "./components/FormPropertyPages/SelectPropertyForm";
 import ImageUpload from "./components/ImageUploaderPage/ImageUploader";
 import ListingDetails from "./components/ListingFormDetail/ListingDetails";
+import Test from './pages/Test'
+import Term from "./pages/TermsAndCondition/Term";
 
 const router = createBrowserRouter([
   {
@@ -44,6 +46,14 @@ const router = createBrowserRouter([
       {
         path: "profile",
         element: <Profile />,
+      },
+      {
+        path: "test",
+        element: <Test />,
+      },
+      {
+        path: "terms",
+        element: <Term />,
       },
     ],
   },

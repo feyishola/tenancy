@@ -58,7 +58,7 @@ function PaymentPage(){
 }
 
 function TourPage(){
-    const data = false
+    const data = true
     return(
         <div>
               {data? <TenancyDetails /> : <Zerodata image={nobooking} message={"No one has booked a tour request yet."} btnTxt={null}/> }
