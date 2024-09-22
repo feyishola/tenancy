@@ -25,6 +25,10 @@ import ListingType from "./components/listingtype";
 import ListingTypeDetails from "./components/listingdetails";
 import LeaseType from "./components/leasetype";
 import ImageUploader from "./components/ImageUploaderPage/ImageUploader";
+import VerifyPage from "./components/VerifyPage/VerifyPage";
+import WelcomePage from "./components/WelcomePage/WelcomePage";
+import PaymentForm from "./components/PaymentForm/PaymentForm";
+import ThankYouPage from "./components/ThankYouPage/ThankYouPage";
 
 const router = createBrowserRouter([
   {
@@ -50,6 +54,13 @@ const router = createBrowserRouter([
       {
         path: "profile",
         element: <Profile />,
+      },
+      {
+        path: "godwin",
+        // element: <WelcomePage />,
+        // element: <VerifyPage />,
+        // element: <PaymentForm />,
+        element: <ThankYouPage/>,
       },
     ],
   },
