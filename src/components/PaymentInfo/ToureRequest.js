@@ -1,14 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import "./TourRequest.css";
 import dotted from "../../svgs/dotted.svg";
 import completed from "../../svgs/completed.svg";
 import scheduled from "../../svgs/scheduled.svg";
 import pending from "../../svgs/pending.svg";
 import cancel from "../../svgs/canceled.svg";
+import CalenderModal from "../Modals/CalenderModal.jsx"
+import { FaBullseye } from "react-icons/fa6";
+import TimeSelectionModal from "../Modals/TimeselectionModal.jsx";
+import SuccessModal from "../Modals/SuccessModal.jsx";
 
 const TenancyDetails = () => {
+  const [isDropdownVisible, setDropdownVisible] = useState(null);
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isTimeSelectionOpen, setTimeSelectionOpen] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+   
+    // Function to toggle the dropdown visibility
   const data = [
     {
+      id: 1,
       property: "Gabby's Minimalistic Home.",
       location: "No.4 Barnawa, Kaduna, Nigeria",
       renter: "Osamudiamen Imasuen",
@@ -19,6 +30,7 @@ const TenancyDetails = () => {
       type: "Tour Completed",
     },
     {
+      id: 2,
       property: "Gabby's Minimalistic Home.",
       location: "No.4 Barnawa, Kaduna, Nigeria",
       renter: "Osamudiamen Imasuen",
@@ -29,6 +41,7 @@ const TenancyDetails = () => {
       type: "Tour Rescheduled",
     },
     {
+      id: 3,
       property: "Gabby's Minimalistic Home.",
       location: "No.4 Barnawa, Kaduna, Nigeria",
       renter: "Osamudiamen Imasuen",
@@ -39,6 +52,7 @@ const TenancyDetails = () => {
       type: "Cancel",
     },
     {
+      id: 4,
       property: "Gabby's Minimalistic Home.",
       location: "No.4 Barnawa, Kaduna, Nigeria",
       renter: "Osamudiamen Imasuen",
@@ -49,6 +63,7 @@ const TenancyDetails = () => {
       type: "Pending",
     },
     {
+      id: 5,
       property: "Gabby's Minimalistic Home.",
       location: "No.4 Barnawa, Kaduna, Nigeria",
       renter: "Osamudiamen Imasuen",
@@ -58,8 +73,36 @@ const TenancyDetails = () => {
       duration: "10am",
       type: "Cancel",
     },
-    // Add more data entries here as needed
   ];
+
+  const toggleDropdown = (id) => {
+    setDropdownVisible(isDropdownVisible === id ? null : id);
+  };
+  const handleOpenModal = () => {
+    setIsModalVisible(true);
+    setTimeSelectionOpen(false);
+    setDropdownVisible(false)
+  };
+
+  const openTimeSelectionModal = () => {
+    setIsModalVisible(false);
+    setTimeSelectionOpen(true);
+  };
+
+  const handleProceed = () => {
+    setTimeSelectionOpen(false);
+    setShowSuccessModal(true);
+  };
+
+  const handleCloseSuccessModal = () => {
+    setShowSuccessModal(false);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalVisible(false);
+    setTimeSelectionOpen(false);
+  };
+
   const imageMap = {
     "Tour Completed": completed,
     "Tour Rescheduled": scheduled,
@@ -88,21 +131,6 @@ const TenancyDetails = () => {
             <option>All</option>
           </select>
         </div>
-        {/* <div className="total-amounts">
-          <div className="total-made">
-            <h4>Total Amount Made</h4>
-            <p>₦14,000,000.00</p>
-          </div>
-          <div className="total-withdrawal">
-            <div>
-              <h4>Total Amount Withdrawable</h4>
-              <p>₦8,900,000.00</p>
-            </div>
-            <div className="amount-image">
-              <img src={dotted} alt="dot" />
-            </div>
-          </div>
-        </div> */}
       </div>
 
       {/* Transactions Section */}
@@ -135,13 +163,57 @@ const TenancyDetails = () => {
                 {" "}
                 <img src={imageToRender} alt={item.type} /> {item.type}
               </div>
-              <div className="dot-image">
+              <div className="dot-image" onClick={()=> toggleDropdown(item.id)}>
                 <img src={dotted} alt="dot" />
               </div>
+
+          {/* Conditionally render card on top based on status */}
+          {isDropdownVisible === item.id && (
+            <div className={`absolute-card ${item.type.toLowerCase()}`}>
+              {item.type === "Tour Completed" && (
+                <div className="drop-menuu">
+                <ul>
+                  <li onClick={handleOpenModal}>Reschedule tour date</li>
+                  <li>Unmark tour completion</li>
+                  <li>Cancel</li>
+                </ul>
+              </div>
+              )}
+              {item.type === "Tour Rescheduled" && (
+                 <div className="drop-menuu">
+                 <ul>
+                   <li onClick={handleOpenModal}>Reschedule tour date</li>
+                   <li>Unmark tour completion</li>
+                   <li>Cancel</li>
+                 </ul>
+               </div>
+              )}
+              {item.type === "Cancel" && (
+                <div className="drop-menuu">
+                <ul>
+                  <li onClick={handleOpenModal}>Reschedule tour date</li>
+                </ul>
+              </div>
+              )}
+              {item.type === "Pending" && (
+                 <div className="drop-menuu">
+                 <ul>
+                   <li onClick={handleOpenModal}>Reschedule tour date</li>
+                   <li>Unmark tour completion</li>
+                   <li>Cancel</li>
+                 </ul>
+               </div>
+              )}
+            </div>
+          )}
             </div>
           );
         })}
       </div>
+          {/* Modal for Rescheduling */}
+          <CalenderModal show={isModalVisible} onClose={handleCloseModal} onNext={openTimeSelectionModal}/>
+          <TimeSelectionModal isOpen={isTimeSelectionOpen} onClose={handleCloseModal} onBack={handleOpenModal} onProceed={handleProceed}/>
+          <SuccessModal show={showSuccessModal} handleClose={handleCloseSuccessModal}/>
     </div>
   );
 };

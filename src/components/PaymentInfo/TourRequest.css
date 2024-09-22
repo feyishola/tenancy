@@ -1,8 +1,8 @@
-/* .tenancy-details {
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-  } */
+.tenancy-details {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
 .header-section {
   display: grid;
@@ -159,8 +159,10 @@
   text-align: left;
 }
 .dot-image {
+  position: relative;
   justify-content: flex-end;
   display: inline-block;
+  cursor: pointer;
 }
 .price-info {
   text-align: right;
@@ -175,6 +177,40 @@ button.rent {
 button.short-lease {
   background-color: #d9e2ff;
   color: #1f6feb;
+}
+.absolute-card {
+  position: absolute;
+  /* Adjust position relative to the task */
+  right: 0px;
+  width: 200px;
+  text-align: left;
+  background-color: white;
+  color: #282828;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  font-family: Inter;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.drop-menuu ul {
+  list-style: none;
+  padding: 0px 0;
+  margin: 0;
+}
+
+.drop-menuu li {
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #333;
+  white-space: nowrap;
+  border-bottom: 1px solid black;
+}
+
+.drop-menuu li:hover {
+  background-color: #f5f5f5;
 }
 
 @media (max-width: 800px) {
