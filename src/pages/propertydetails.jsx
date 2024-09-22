@@ -5,10 +5,14 @@ import img2 from '../svgs/white2.svg'
 import img3 from '../svgs/white3.svg'
 import ImageCarousel from '../components/imagecarousel';
 import CalendarDropdown from '../components/calenderdropdown';
+import { useNavigate } from 'react-router-dom';
 // import Mapcomponent from '../components/mapcomponent';
 const Mapcomponent = lazy(() => import('../components/mapcomponent'));
 
 const Propertydetails = () => {
+  
+  const navigate = useNavigate();
+
   const defaultLocations = [
     { address: 'No.4, Maha Close, Barnawa Kaduna', lat: '10.47661', lng: '7.43039' },
   ];
@@ -20,7 +24,7 @@ const Propertydetails = () => {
             <p className='text-base md:text-3xl'>Grey Berry Estate</p>
             <p className='text-xs md:text-sm text-gray-500'>Barnawa, Kaduna</p>
           </div>
-          <div className='flex flex-row gap-1 items-center cursor-pointer' onClick={()=>console.log("back")}>
+          <div className='flex flex-row gap-1 items-center cursor-pointer' onClick={()=>navigate(-1)}>
             <MdKeyboardArrowLeft/>
             Back
           </div>

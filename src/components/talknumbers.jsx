@@ -38,7 +38,7 @@ const TalkNumbers = ({ rate = "1.7%" }) => {
 
   const handleSubmit = () => {
     console.log('Selected lease type:', selectedType);
-    navigate("/form/uploadimages");
+    navigate(-1);
   };
 
   return (
