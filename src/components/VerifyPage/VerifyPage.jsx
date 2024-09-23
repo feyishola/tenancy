@@ -29,7 +29,7 @@ const VerifyPage = () => {
 
   return (
     <div className="container">
-      <header className="header">
+      <header className="headerss">
         <h2>Confirm Your Phone Number</h2>
         <span><button className="close-button" onClick={() => navigate('/')}>Close <IoMdCloseCircleOutline /></button></span>
       </header>

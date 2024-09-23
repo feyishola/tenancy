@@ -57,10 +57,10 @@ const router = createBrowserRouter([
       },
       {
         path: "godwin",
-        // element: <WelcomePage />,
+        element: <WelcomePage />,
         // element: <VerifyPage />,
         // element: <PaymentForm />,
-        element: <ThankYouPage/>,
+        // element: <ThankYouPage/>,
       },
     ],
   },
