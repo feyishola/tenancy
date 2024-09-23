@@ -12,11 +12,6 @@
   margin-bottom: 20px;
 }
 
-/* .filter-section {
-    display: flex;
-    flex-direction: column;
-  } */
-
 .filter-section label {
   font-family: Inter;
   font-size: 12px;
@@ -93,9 +88,6 @@
 }
 
 .property-info h4 {
-  /* font-size: 13px;
-      margin-bottom: 5px;
-      text-align: left; */
   font-family: Inter;
   font-size: 18px;
   font-weight: 600;
@@ -141,18 +133,8 @@
 }
 
 .type-info {
-  /* cursor: pointer;
-    background-color: #ebe7de;
-    text-align: left;
-    white-space: nowrap; */
-  /* padding-top: 7px; */
-  /* padding-bottom: 7px; */
-  /* padding-left: 10px;
-    border-radius: 20px;
-    padding-right: 40px; */
   padding: 5px;
   font-size: 17px;
-  /* margin-bottom: 5px; */
   background-color: #ebe7de;
   white-space: nowrap;
   width: 100%;
@@ -179,9 +161,9 @@ button.short-lease {
   color: #1f6feb;
 }
 .absolute-card {
-  position: absolute;
+  position: relative;
   /* Adjust position relative to the task */
-  right: 0px;
+
   width: 200px;
   text-align: left;
   background-color: white;
