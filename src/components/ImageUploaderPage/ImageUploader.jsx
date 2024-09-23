@@ -1,15 +1,12 @@
-
 import React, { useState } from 'react';
 import './ImageUploader.css';
 import { FaAngleLeft } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 
-
 const ImageUploader = () => {
   const [images, setImages] = useState([]);
   const [errorMessage, setErrorMessage] = useState('');
-
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   // Handler for uploading images
   const handleImageUpload = (e) => {
@@ -41,27 +38,22 @@ const ImageUploader = () => {
   };
 
   const handleSubmit = () => {
-    console.log("pictures uploaded");
-    navigate("/searchbar/aboutproperty")
+    navigate("/form/previewimages", { state: { images } });
   };
 
   return (
     <div className="upload-page-container">
-      {/* Header Section */}
       <div className="header-container">
         <h2>Upload Images</h2>
         <span>
-          {/* Pls remove this a tag */}
-        <a href="/" className="back-link"> <FaAngleLeft /> Back</a> 
+          <button className="back-link" onClick={() => navigate(-1)}><FaAngleLeft /> Back</button>
         </span>
       </div>
 
-      {/* Description */}
       <div className="description-container">
         <p>We'd love to see some images of your listing.<br />You can upload as many as 30 images.</p>
       </div>
 
-      {/* Drag and Drop Area */}
       <div 
         className="upload-box" 
         onDrop={handleDrop} 
@@ -82,10 +74,8 @@ const ImageUploader = () => {
         </div>
       </div>
 
-      {/* Error Message */}
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-      {/* Image Previews */}
       {images.length > 0 && (
         <div className="image-preview-container">
           {images.map((image, index) => (
@@ -96,7 +86,6 @@ const ImageUploader = () => {
         </div>
       )}
 
-      {/* Continue Button */}
       <div className="continue-button-container">
         <button 
           className={`continue-btn ${images.length > 0 ? 'active' : ''}`} 
@@ -106,9 +95,9 @@ const ImageUploader = () => {
           Continue
         </button>
       </div>
-
     </div>
   );
 };
 
 export default ImageUploader;
+

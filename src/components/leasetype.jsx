@@ -29,7 +29,7 @@ const LeaseType = () => {
       <div className='cont max-w-[700px] md:w-[40%] border border-black mt-20 bg-white'>
         <div className='flex flex-row justify-between border-b border-b-gray-400 w-full p-5'>
           <p>Select a preferred lease term for your property.</p>
-          <div className='flex flex-row gap-1 items-center cursor-pointer' onClick={() => console.log("back")}>
+          <div className='flex flex-row gap-1 items-center cursor-pointer' onClick={() => navigate(-1)}>
             <MdKeyboardArrowLeft />
             Back
           </div>

@@ -1,4 +1,4 @@
-/* body {
+body {
   font-family: "Helvetica Neue", Arial, sans-serif;
   margin: 0;
   padding: 0;
@@ -17,24 +17,24 @@
   border: 1px solid #e0e0e0;
   height: 100vh;
 }
-form {
+.formt {
   padding: 20px 30px 30px 30px;
   width: 100%;
   max-width: 800px;
-  background-color: white; */
-/* padding: 20px; */
-/* box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  /* padding: 20px; */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
 }
 
-header {
+.headert {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
 }
 
-h2 {
+.h2t {
   font-size: 1.5rem;
   margin: 0;
 }
@@ -63,17 +63,18 @@ h2 {
   color: red;
 }
 
-label {
+.labelt {
   display: block;
   font-weight: bold;
   margin-bottom: 5px;
   font-size: 0.9rem;
   padding-top: 12px;
+  text-align: left;
 }
 
-input[type="date"],
-input[type="password"],
-input[type="text"] {
+.inputt[type="date"],
+.inputt[type="password"],
+.inputt[type="text"] {
   width: 100%;
   padding: 10px;
   margin-bottom: 10px;
@@ -145,29 +146,29 @@ p.flex.justfy-start {
 
 .submit-btn:hover {
   background-color: #333;
-} */
+}
 /* Default icon color */
-/* #wifi-icon {
+#wifi-icon {
   color: gray;
-} */
+}
 
 /* Style for weak password */
-/* .weak {
+.weak {
   color: red;
-} */
+}
 
 /* Style for medium password */
-/* .medium {
+.medium {
   color: orange;
-} */
+}
 
 /* Style for strong password */
-/* .strong {
+.strong {
   color: green;
-} */
+}
 
 /* Additional styles for the text indicating strength */
-/* .strength-text {
+.strength-text {
   font-size: 0.6rem;
   margin-left: 5px;
 }
@@ -205,21 +206,20 @@ p.flex.justfy-start {
   color: #070707;
   text-decoration: none;
   font-weight: 600;
-} */
+}
 
 /* Responsive Media Queries */
-/* @media (min-width: 1024px) and (max-width: 1440px) {
+@media (min-width: 1024px) and (max-width: 1440px) {
   .form-container {
-    padding: 30px; 
+    padding: 30px;
     height: 100vh;
   }
 
-  form {
-    max-width: 700px; 
+  .formt {
+    max-width: 700px;
     height: 100vh;
   }
 }
-
 
 @media (max-width: 600px) {
   .form-container {
@@ -227,7 +227,7 @@ p.flex.justfy-start {
     margin: 10px;
   }
 
-  h2 {
+  .h2t {
     font-size: 1.2rem;
   }
 
@@ -245,4 +245,4 @@ p.flex.justfy-start {
   input::placeholder {
     font-size: 12px;
   }
-} */
+}

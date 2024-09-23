@@ -29,7 +29,7 @@ const Propertydetailsowner = () => {
             <p className='text-base md:text-3xl'>Grey Berry Estate</p>
             <p className='text-xs md:text-sm text-gray-500'>Barnawa, Kaduna</p>
           </div>
-          <div className='flex flex-row gap-1 items-center cursor-pointer' onClick={()=>console.log("back")}>
+          <div className='flex flex-row gap-1 items-center cursor-pointer' onClick={()=>navigate(-1)}>
             <MdKeyboardArrowLeft/>
             Back
           </div>

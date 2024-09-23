@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
-import Mapcomponent from './mapcomponent';
+import React, { useState, lazy, Suspense } from 'react';
 import { MdKeyboardArrowLeft } from "react-icons/md";
 import { PiWarningCircleThin } from "react-icons/pi";
+import { useNavigate } from 'react-router-dom';
+const Mapcomponent = lazy(()=>import("./mapcomponent"))
+
 
 const Mapform = () => {
   const [address, setAddress] = useState('');
   const [inputValue, setInputValue] = useState('');
+  const navigate = useNavigate();
 
   // Default locations to show before the user inputs anything
   const defaultLocations = [
@@ -20,6 +23,7 @@ const Mapform = () => {
     if (inputValue.trim()) {
       setAddress(inputValue);
       setInputValue('');
+      navigate("/form/price")
     }
   };
 
@@ -30,10 +34,10 @@ const Mapform = () => {
 
   return (
     <div className='flex justify-center w-full'>
-      <div className='cont max-w-[500px] md:w-[500px] min-h-[400px] border border-black mt-20 bg-white'>
+      <div className='cont max-w-[700px] md:w-[40%]  min-h-[400px] border border-black my-20 bg-white'>
         <div className='flex flex-row justify-between border-b border-b-gray-400 w-full p-5'>
           <p>Location</p>
-          <div className='flex flex-row gap-1 items-center cursor-pointer' onClick={() => console.log("back")}>
+          <div className='flex flex-row gap-1 items-center cursor-pointer' onClick={() => navigate(-1)}>
             <MdKeyboardArrowLeft />
             Back
           </div>
@@ -60,7 +64,9 @@ const Mapform = () => {
         <div className='p-5'>
           <div className='border border-black h-full w-full'>
             {/* Always render the map, but it switches to user input once address is set */}
-            <Mapcomponent mapHeight='200px' locations={locationObject} />
+            <Suspense fallback={<div>Loading map...</div>}>
+              <Mapcomponent mapHeight='200px' locations={locationObject} />
+            </Suspense>
           </div>
         </div>
         <div className='px-5 pt-6 pb-10'>

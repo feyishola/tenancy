@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react'
+import React, { useContext, useReducer } from 'react'
 import Searchinput from '../components/searchinput'
 import img1 from '../svgs/white1.svg'
 import img2 from '../svgs/white2.svg'
@@ -8,6 +8,7 @@ import info3 from '../svgs/Shor-term Stay.svg'
 import rent from '../svgs/Rent.svg'
 import listImg from '../svgs/listhome.svg'
 import { useNavigate } from 'react-router-dom'
+import { AppContext } from '../store/store'
 
 const reducer = (state,action)=>{
   switch (action.type) {
@@ -34,7 +35,8 @@ const Home = () => {
   }
   const[state, dispatch] = useReducer(reducer,initialState);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const {name} = useContext(AppContext)
 
   return (
     <>
@@ -45,7 +47,7 @@ const Home = () => {
         <Searchinput/>
     </div>
     <div className='mb-[50px] flex flex-col md:flex-row justify-between gap-4 mt-8'>
-      <div className='w-full md:w-[30%] cursor-pointer relative' onClick={()=>dispatch({type:"FIRSTIMG"})}>
+      <div className='w-full md:w-[30%] cursor-pointer relative ' onClick={()=>dispatch({type:"FIRSTIMG"})}>
         <img src={img1} alt='img1' className={`w-full h-full object-cover filterimg ${state.firstImg && 'filternone'}`}/>
         <img src={circle} alt='circleimg' className={`w-[45px] h-[45px] absolute top-[-20px] right-[-15px] ${state.firstImg && 'hidden'} `}/>
         <div className={`bg-white  absolute top-[68%] p-3 left-[1%] md:left-[30%] ${state.showImg1 && 'hidden'}`} style={{border:"3px solid black"}} >
@@ -67,8 +69,7 @@ const Home = () => {
        
       </div>
     </div>
-
-
+    
     </>
     
   )

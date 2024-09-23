@@ -29,6 +29,9 @@ import VerifyPage from "./components/VerifyPage/VerifyPage";
 import WelcomePage from "./components/WelcomePage/WelcomePage";
 import PaymentForm from "./components/PaymentForm/PaymentForm";
 import ThankYouPage from "./components/ThankYouPage/ThankYouPage";
+import PropertyDescription from "./components/propertydescription";
+import ImageGrid from "./components/ImageGrid";
+import TalkNumbers from "./components/talknumbers";
 
 const router = createBrowserRouter([
   {
@@ -83,6 +86,10 @@ const router = createBrowserRouter([
       {
         path: "aboutproperty",
         element: <SelectForm />,
+      },
+      {
+        path: "propertydescription",
+        element: <PropertyDescription />,
       },
       {
         path: "listdetailg 1",
@@ -143,6 +150,14 @@ const router = createBrowserRouter([
       {
         path: "uploadimages",
         element: <ImageUploader />,
+      },
+      {
+        path: "previewimages",
+        element: <ImageGrid />,
+      },
+      {
+        path: "price",
+        element: <TalkNumbers />,
       },
     ],
   },
