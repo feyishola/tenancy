@@ -134,3 +134,4 @@ const Term = () => {
 };
 
 export default Term;
+
