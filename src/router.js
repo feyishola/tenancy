@@ -25,6 +25,10 @@ import ListingType from "./components/listingtype";
 import ListingTypeDetails from "./components/listingdetails";
 import LeaseType from "./components/leasetype";
 import ImageUploader from "./components/ImageUploaderPage/ImageUploader";
+import VerifyPage from "./components/VerifyPage/VerifyPage";
+import WelcomePage from "./components/WelcomePage/WelcomePage";
+import PaymentForm from "./components/PaymentForm/PaymentForm";
+import ThankYouPage from "./components/ThankYouPage/ThankYouPage";
 import PropertyDescription from "./components/propertydescription";
 import ImageGrid from "./components/ImageGrid";
 import TalkNumbers from "./components/talknumbers";
@@ -64,14 +68,6 @@ const router = createBrowserRouter([
       </LayoutWithSearch>
     ),
     children: [
-      {
-        path: "loggin 3",
-        element: <Login />,
-      },
-      {
-        path: "createaccountg 2",
-        element: <CreateAccountForm />,
-      },
       {
         path: "aboutproperty",
         element: <SelectForm />,
@@ -148,6 +144,14 @@ const router = createBrowserRouter([
         path: "price",
         element: <TalkNumbers />,
       },
+      {
+        path: "paymentform",
+        element: <PaymentForm />,
+      },
+      {
+        path: "paymentmade",
+        element: <ThankYouPage />,
+      },
     ],
   },
   {
@@ -175,6 +179,22 @@ const router = createBrowserRouter([
   {
     path: "/notifications",
     element: <NotificationsPage />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/createaccount",
+    element: <CreateAccountForm />,
+  },
+  {
+    path: "/welcome",
+    element: <WelcomePage />,
+  },
+  {
+    path: "/verifyphone",
+    element: <VerifyPage />,
   },
 ]);
 export default router;
