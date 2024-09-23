@@ -36,6 +36,22 @@ import TalkNumbers from "./components/talknumbers";
 const router = createBrowserRouter([
   {
     path: "/",
+    element: <Login />,
+  },
+  {
+    path: "/createaccount",
+    element: <CreateAccountForm />,
+  },
+  {
+    path: "/welcome",
+    element: <WelcomePage />,
+  },
+  {
+    path: "/verifyphone",
+    element: <VerifyPage />,
+  },
+  {
+    path: "/base",
     element: (
       <Layout>
         <Outlet />
@@ -49,10 +65,12 @@ const router = createBrowserRouter([
       {
         path: "accountform",
         element: <Accountformtext />,
+        // not used yet
       },
       {
         path: "imagegrid",
         element: <ImageGridTexts />,
+        // not used yet
       },
       {
         path: "profile",
@@ -179,22 +197,6 @@ const router = createBrowserRouter([
   {
     path: "/notifications",
     element: <NotificationsPage />,
-  },
-  {
-    path: "/login",
-    element: <Login />,
-  },
-  {
-    path: "/createaccount",
-    element: <CreateAccountForm />,
-  },
-  {
-    path: "/welcome",
-    element: <WelcomePage />,
-  },
-  {
-    path: "/verifyphone",
-    element: <VerifyPage />,
   },
 ]);
 export default router;

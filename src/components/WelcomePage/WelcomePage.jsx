@@ -9,7 +9,7 @@ const WelcomePage = () => {
 
   const handleUpdateProfile = () => {
 
-    navigate("/profile");
+    navigate("/base/profile");
   };
 
 
@@ -27,7 +27,7 @@ const WelcomePage = () => {
         <button className="update-button" onClick={handleUpdateProfile}>
           Update Profile
         </button>
-        <button className="explore-button">
+        <button className="explore-button" onClick={()=>navigate("/base")}>
           Skip for now, let me explore
         </button>
       </div>

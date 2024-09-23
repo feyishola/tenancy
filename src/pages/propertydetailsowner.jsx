@@ -1,4 +1,4 @@
-import React, { useState, Suspense, lazy } from 'react' 
+import React, { Suspense, lazy } from 'react' 
 import { MdKeyboardArrowLeft } from "react-icons/md";
 import img1 from '../svgs/white1.svg'
 import img2 from '../svgs/white2.svg'
@@ -20,7 +20,7 @@ const Propertydetailsowner = () => {
     { address: 'No.4, Maha Close, Barnawa Kaduna', lat: '10.47661', lng: '7.43039' },
   ];
 
-  const [address, setAddress] = useState(defaultLocations);
+  // const [address, setAddress] = useState(defaultLocations);
 
   return (
     <div>
@@ -80,7 +80,7 @@ const Propertydetailsowner = () => {
                 </div>
                 
                 {/* Note that i done need to call the setAddress here, its just a placeholder for now */}
-                <button className='bg-[#00A167] text-white p-3 w-[250px]' onClick={()=>{setAddress([{address:"Lagos state University"}])}}>Book Property</button> 
+                <button className='bg-[#00A167] text-white p-3 w-[250px]' onClick={()=>{navigate("/form/paymentform")}}>Book Property</button> 
             </div>
           </div>
         
@@ -120,7 +120,7 @@ const Propertydetailsowner = () => {
                     </p>
                     <div className='w-full'>
                     <Suspense fallback={<div>Loading map...</div>}>
-                      <Mapcomponent mapHeight='200px' locations={address}/>
+                      <Mapcomponent mapHeight='200px' locations={defaultLocations}/>
                     </Suspense>
                     </div>
                   </div>
@@ -160,7 +160,7 @@ const Propertydetailsowner = () => {
                                 Osamudiamen Imasuen
                             </p>
                             {/* link to review page */}
-                            <Link to={"/"}>
+                            <Link to={"/base/profile"}>
                                 <p className=' text-start text-xs underline'>
                                     Click to see review
                                 </p>

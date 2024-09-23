@@ -1,15 +1,17 @@
 import React from "react";
 import './PaymentForm.css';
 import { IoChevronBackOutline } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
 
 
 
 const PaymentForm = () => {
+  const navigate = useNavigate()
   return (
     <div className="payment-container">
       <div className="payment-header">
         <h2>Pay with card</h2>
-        <span> <button className="back-link"> <IoChevronBackOutline />
+        <span> <button className="back-link" onClick={()=>{navigate(-1)}}> <IoChevronBackOutline />
             Back </button></span>
       </div>
       <form className="payment-form">
@@ -31,7 +33,7 @@ const PaymentForm = () => {
             <input type="text" id="cvv" className="input-field small-input" placeholder="---" />
           </div>
         </div>
-        <button type="submit" className="pay-button">Pay</button>
+        <button type="submit" className="pay-button" onClick={()=>{navigate("/form/paymentmade")}}>Pay</button>
       </form>
     </div>
   );
