@@ -58,13 +58,6 @@ const router = createBrowserRouter([
         path: "profile",
         element: <Profile />,
       },
-      {
-        path: "godwin",
-        element: <WelcomePage />,
-        // element: <VerifyPage />,
-        // element: <PaymentForm />,
-        // element: <ThankYouPage/>,
-      },
     ],
   },
   {
@@ -75,14 +68,6 @@ const router = createBrowserRouter([
       </LayoutWithSearch>
     ),
     children: [
-      {
-        path: "loggin 3",
-        element: <Login />,
-      },
-      {
-        path: "createaccountg 2",
-        element: <CreateAccountForm />,
-      },
       {
         path: "aboutproperty",
         element: <SelectForm />,
@@ -159,6 +144,14 @@ const router = createBrowserRouter([
         path: "price",
         element: <TalkNumbers />,
       },
+      {
+        path: "paymentform",
+        element: <PaymentForm />,
+      },
+      {
+        path: "paymentmade",
+        element: <ThankYouPage />,
+      },
     ],
   },
   {
@@ -186,6 +179,22 @@ const router = createBrowserRouter([
   {
     path: "/notifications",
     element: <NotificationsPage />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/createaccount",
+    element: <CreateAccountForm />,
+  },
+  {
+    path: "/welcome",
+    element: <WelcomePage />,
+  },
+  {
+    path: "/verifyphone",
+    element: <VerifyPage />,
   },
 ]);
 export default router;
