@@ -56,6 +56,10 @@ const MapPage = () => {
             gaugeIcon={gaugeIcon}
             mark={markIcon}
             onSearch={handleSearch}
+            mapButtonBg='black'
+            mapButtonColor='white'
+            mapButtonLabel='Close Map'
+            navigatePath = '/searchbar/availablelisting'
           />
           <div className="flex flex-col md:flex-row">
          

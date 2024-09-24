@@ -5,6 +5,7 @@ import { IoMdNotificationsOutline } from "react-icons/io";
 import { RiMessage2Line } from "react-icons/ri";
 import { CgProfile } from "react-icons/cg";
 import Searchinput from "./searchinput";
+import { Link } from "react-router-dom";
 
 
 const NavbarWithSearch = () => {
@@ -23,7 +24,10 @@ const NavbarWithSearch = () => {
         {/* Icons and Account */}
         <div className="flex gap-10 items-center">
             <IoMdNotificationsOutline className="w-6 h-6 cursor-pointer" />
-            <RiMessage2Line className="w-6 h-6 cursor-pointer" />
+            <Link to={"/notifications"}>
+              <RiMessage2Line className="w-6 h-6 cursor-pointer" />
+            </Link>
+            
           <div className="flex gap-3 items-center cursor-pointer">
             <CgProfile className="w-6 h-6" />
             <span>Account</span>

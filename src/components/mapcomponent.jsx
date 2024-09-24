@@ -15,6 +15,7 @@ L.Icon.Default.mergeOptions({
 // Component to update the map view when coordinates change
 const UpdateMapCenter = ({ coordinates }) => {
   const map = useMap();
+  
   useEffect(() => {
     if (coordinates && coordinates.length > 0) {
       map.setView(coordinates[0]); // Center the map on the first coordinate

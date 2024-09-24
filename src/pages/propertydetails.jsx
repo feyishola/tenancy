@@ -1,18 +1,22 @@
-import React, { useState, Suspense, lazy } from 'react' 
+import React, {  Suspense, lazy } from 'react' 
 import { MdKeyboardArrowLeft } from "react-icons/md";
 import img1 from '../svgs/white1.svg'
 import img2 from '../svgs/white2.svg'
 import img3 from '../svgs/white3.svg'
 import ImageCarousel from '../components/imagecarousel';
 import CalendarDropdown from '../components/calenderdropdown';
+import { useNavigate } from 'react-router-dom';
 // import Mapcomponent from '../components/mapcomponent';
 const Mapcomponent = lazy(() => import('../components/mapcomponent'));
 
 const Propertydetails = () => {
+  
+  const navigate = useNavigate();
+
   const defaultLocations = [
     { address: 'No.4, Maha Close, Barnawa Kaduna', lat: '10.47661', lng: '7.43039' },
   ];
-  const [address, setAddress] = useState(defaultLocations);
+  // const [address, setAddress] = useState(defaultLocations);
   return (
     <div>
         <div className='flex flex-row justify-between  w-full py-5'>
@@ -20,7 +24,7 @@ const Propertydetails = () => {
             <p className='text-base md:text-3xl'>Grey Berry Estate</p>
             <p className='text-xs md:text-sm text-gray-500'>Barnawa, Kaduna</p>
           </div>
-          <div className='flex flex-row gap-1 items-center cursor-pointer' onClick={()=>console.log("back")}>
+          <div className='flex flex-row gap-1 items-center cursor-pointer' onClick={()=>navigate(-1)}>
             <MdKeyboardArrowLeft/>
             Back
           </div>
@@ -71,7 +75,7 @@ const Propertydetails = () => {
                 </div>
                 
                 {/* Note that i done need to call the setAddress here, its just a placeholder for now */}
-                <button className='bg-[#00A167] text-white p-3 w-[250px]' onClick={()=>{setAddress([{address:"Lagos state University"}])}}>Book Property</button> 
+                <button className='bg-[#00A167] text-white p-3 w-[250px]' onClick={()=>{navigate("/form/paymentform")}}>Book Property</button> 
             </div>
           </div>
         
@@ -111,7 +115,7 @@ const Propertydetails = () => {
                     </p>
                     <div className='w-full'>
                     <Suspense fallback={<div>Loading map...</div>}>
-                      <Mapcomponent mapHeight='200px' locations={address}/>
+                      <Mapcomponent mapHeight='200px' locations={defaultLocations}/>
                     </Suspense>
                     </div>
                   </div>

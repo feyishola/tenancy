@@ -23,7 +23,7 @@ const Navbar = () => {
 
         {/* Navigation Links */}
         <div className="hidden md:flex gap-9">
-        <Link to={"/"}>
+        <Link to={"/base"}>
           <p className="cursor-pointer hover:text-gray-700">Make a choice</p>
         </Link>
 

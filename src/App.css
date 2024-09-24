@@ -38,6 +38,11 @@ body {
   -o-transition: filter 0.2s;
 }
 
+/* .filterimg:hover {
+  filter: none;
+  -webkit-filter: none;
+} */
+
 .filternone {
   filter: none;
   -webkit-filter: none;

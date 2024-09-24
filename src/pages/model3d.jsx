@@ -1,6 +1,6 @@
 import React from 'react'
 import video1 from '../assets/first3dmodel.mp4';
-// import video2 from '../assets/second3dmodel.mp4';
+// import video1 from '../assets/model3.mp4';
 
 const Model3d = () => {
     

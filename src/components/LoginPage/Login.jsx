@@ -2,6 +2,7 @@ import React, { useReducer } from 'react';
 import { FaFacebookSquare, FaGoogle } from "react-icons/fa";
 import { IoCloseCircleOutline } from "react-icons/io5";
 import './Login.css'
+import { Link, useNavigate } from 'react-router-dom';
 
 
 // Initial state for the form
@@ -28,6 +29,8 @@ const reducer = (state, action) => {
 const LoginForm = () => { // Rename from 'Login' to 'LoginForm'
   const [state, dispatch] = useReducer(reducer, initialState);
 
+  const navigate = useNavigate()
+
   const handleEmailChange = (e) => {
     dispatch({ type: 'SET_EMAIL', payload: e.target.value });
   };
@@ -45,65 +48,68 @@ const LoginForm = () => { // Rename from 'Login' to 'LoginForm'
     // Handle form submission here
     console.log('Email:', state.email);
     console.log('Password:', state.password);
+    navigate("/welcome")
   };
 
   return (
-    <div className="login-container">
-      <button className="close-btn">Close <span className='close-icon'> <IoCloseCircleOutline /> </span></button>
-      <br />
-      <br />
-      <br />
-      <div className="text_wrap">
-        <div className="login-header">
-          <h3>Welcome back! </h3>
-          <p>Login to your account.</p>
+    <div style={{minHeight:"90vh", display:"flex", alignItems:"center"}}>
+      <div className="login-container" >
+        <button className="close-btn">Close <span className='close-icon'> <IoCloseCircleOutline /> </span></button>
+        <br />
+        <br />
+        <br />
+        <div className="text_wrap">
+          <div className="login-header">
+            <h3>Welcome back! </h3>
+            <p>Login to your account.</p>
+          </div>
+          <div className="account-info">
+            <p>Don't have an account? </p>
+            <Link to={"/createaccount"}>Create Account</Link>
+          </div>
         </div>
-        <div className="account-info">
-          <p>Don't have an account? </p>
-          <a href="#">Create Account</a>
-        </div>
-      </div>
 
-      <div className="social-login">
-        <button className="facebook-btn">
-        < FaFacebookSquare /> Login With Facebook
-        </button>
-        <button className="google-btn">
-          <FaGoogle className='icon' /> Login With Google
-        </button>
-      </div>
-        <hr />
-      <form onSubmit={handleSubmit} className="login-form">
-        <label htmlFor="email">EMAIL ADDRESS</label>
-        <input
-          id="email"
-          type="email"
-          value={state.email}
-          onChange={handleEmailChange}
-          placeholder="onogwu@gmail.com"
-          required
-        />
-
-        <div className="password-container">
-          <label htmlFor="password">PASSWORD</label>
-          <a href="#" className="forgot-password">Forgot Password?</a>
+        <div className="social-login">
+          <button className="facebook-btn">
+          < FaFacebookSquare /> Login With Facebook
+          </button>
+          <button className="google-btn">
+            <FaGoogle className='icon' /> Login With Google
+          </button>
         </div>
-        <div className="show-password">
+          <hr />
+        <form onSubmit={handleSubmit} className="login-form">
+          <label htmlFor="email">EMAIL ADDRESS</label>
           <input
-            type={state.showPassword ? 'text' : 'password'}
-            id="password"
-            value={state.password}
-            onChange={handlePasswordChange}
-            placeholder="Enter your password"
+            id="email"
+            type="email"
+            value={state.email}
+            onChange={handleEmailChange}
+            placeholder="onogwu@gmail.com"
             required
           />
-          <span className="toggle-password" onClick={toggleShowPassword}>
-            {state.showPassword ? 'Hide' : 'Show'}
-          </span>
-        </div>
 
-        <button type="submit" className="login-btn">Login To My Account</button>
-      </form>
+          <div className="password-container">
+            <label htmlFor="password">PASSWORD</label>
+            <Link to={'#'} className='forgot-password'>Forgot Password?</Link>
+          </div>
+          <div className="show-password">
+            <input
+              type={state.showPassword ? 'text' : 'password'}
+              id="password"
+              value={state.password}
+              onChange={handlePasswordChange}
+              placeholder="Enter your password"
+              required
+            />
+            <span className="toggle-password" onClick={toggleShowPassword}>
+              {state.showPassword ? 'Hide' : 'Show'}
+            </span>
+          </div>
+
+          <button type="submit" className="login-btn">Login To My Account</button>
+        </form>
+      </div>
     </div>
   );
 };

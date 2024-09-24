@@ -10,6 +10,8 @@ const HeaderComponent = ({
   temperature = '30°',
   location = 'Kaduna, Nigeria',
   mapButtonLabel = 'Open Map',
+  mapButtonBg = 'white',
+  mapButtonColor = 'black',
   mapButtonLogo,
   navigatePath = '/searchbar/availablelistingmap',
   gaugeIcon,
@@ -29,11 +31,11 @@ const HeaderComponent = ({
           <h1 className="avail-header">{title}</h1>
         </div>
         <div className="proper" style={styles.properStyle}>
-          <div className="proElement">
+          <div className="proElement gap-1">
             <span className="price">{priceLabel}</span>
             <img src={mark} alt="mark" />
           </div>
-          <div className="proElement">
+          <div className="proElement gap-1">
             <span className="proType">{propertyTypeLabel}</span>
             <img src={mark} alt="mark" />
           </div>
@@ -51,7 +53,7 @@ const HeaderComponent = ({
           </div>
         </div>
 
-        <button className="map-btn" onClick={() => navigate(navigatePath, { state: '' })}>
+        <button className={`map-btn`} onClick={() => navigate(navigatePath, { state: '' })} style={{backgroundColor:`${mapButtonBg}`,color:`${mapButtonColor}`}}>
           {mapButtonLabel} <img className="btn-logo" src={mapButtonLogo} alt="btn-logo" />
         </button>
       </div>
