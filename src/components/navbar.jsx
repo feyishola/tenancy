@@ -36,7 +36,10 @@ const Navbar = () => {
 
         {/* Icons and Account */}
         <div className="flex gap-10 items-center">
-            <IoMdNotificationsOutline className="w-6 h-6 cursor-pointer" />
+            <Link to={"/notificationlist"}>
+              <IoMdNotificationsOutline className="w-6 h-6 cursor-pointer" />
+            </Link>
+            
             <Link to={"/notifications"}>
               <RiMessage2Line className="w-6 h-6 cursor-pointer" />
             </Link>

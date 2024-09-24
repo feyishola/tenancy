@@ -35,6 +35,7 @@ import TalkNumbers from "./components/talknumbers";
 
 import Notificationtext from "./pages/Notificationtext";
 import PaymentBreak from "./pages/PaymentBreak";
+import LayoutForNotification from "./layout/layoutfornotification";
 
 const router = createBrowserRouter([
   {
@@ -173,6 +174,10 @@ const router = createBrowserRouter([
         path: "paymentmade",
         element: <ThankYouPage />,
       },
+      {
+        path: "paymentbreak",
+        element: <PaymentBreak />,
+      },
     ],
   },
   {
@@ -202,12 +207,14 @@ const router = createBrowserRouter([
     element: <NotificationsPage />,
   },
   {
-    path: "not",
-    element: <Notificationtext />,
-  },
-  {
-    path: "paymentbreakk",
-    element: <PaymentBreak />,
+    path: "/notificationlist",
+    element: <LayoutForNotification children={<Outlet />} />,
+    children: [
+      {
+        index: true,
+        element: <Notificationtext />,
+      },
+    ],
   },
 ]);
 export default router;

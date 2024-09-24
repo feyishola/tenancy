@@ -38,6 +38,24 @@ const NotificationsList = () => {
       text: "New houses available for rent",
       timeAgo: "5 hours ago",
     },
+    {
+      id: 7,
+      initials: "RHA",
+      text: "New houses available for rent",
+      timeAgo: "5 min ago",
+    },
+    {
+      id: 8,
+      initials: "RHA",
+      text: "Website maintenance",
+      timeAgo: "5 min ago",
+    },
+    {
+      id: 9,
+      initials: "RHA",
+      text: "New houses available for rent",
+      timeAgo: "5 min ago",
+    },
   ];
 
   const [notifications, setNotifications] = useState(initialNotifications);
@@ -53,18 +71,15 @@ const NotificationsList = () => {
   };
 
   return (
-    <div className="bg-gray-100 p-4 w-full max-w-2xl mx-auto">
+    <div className="p-4 w-full max-w-2xl mx-auto">
       <div className="flex items-center mb-4">
         <h2 className="text-2xl font-semibold">Notifications</h2>
-        <div className="bg-black text-white text-xs px-2 py-1 ml-2">
-          3 new
-        </div>
+        <div className="bg-black text-white text-xs px-2 py-1 ml-2">3 new</div>
         <button className="ml-auto text-black-500" onClick={handleClearAll}>
           Clear all
         </button>
       </div>
 
-      
       <div className="bg-white roun-lg shadow-md m-0 px-6 pt-2">
         {" "}
         {notifications.map((notification, index) => (
@@ -95,7 +110,9 @@ const Notification = ({ notification, onClear }) => {
         </div>
         <div>
           <p className="font-semibol">{notification.text}</p>
-          <p className="text-sm text-gray-500 text-left">{notification.timeAgo}</p>
+          <p className="text-sm text-gray-500 text-left">
+            {notification.timeAgo}
+          </p>
         </div>
       </div>
       <button
