@@ -1,8 +1,7 @@
-/* .tenancy-details {
-  padding: 20px;
+.tenancy-details {
   max-width: 1200px;
-  margin: 0 auto;
-} */
+  /* margin: 0 auto; */
+}
 
 .header-section {
   display: grid;
@@ -11,11 +10,6 @@
   gap: 20px;
   margin-bottom: 20px;
 }
-
-/* .filter-section {
-  display: flex;
-  flex-direction: column;
-} */
 
 .filter-section label {
   font-family: Inter;
@@ -54,7 +48,7 @@
   text-align: center;
   padding-right: 30px;
   display: flex;
-  white-space: nowrap;
+  
 }
 .amount-image {
   margin-left: 1.25rem;
@@ -174,14 +168,18 @@ button.short-lease {
     grid-template-columns: 1fr;
     /* text-align: center; */
   }
-
-  /* .total-amounts {
+  .total-amounts{
+    display: flex;
     flex-direction: column;
-    gap: 10px;
-  } */
+    justify-content: center;
+    align-items: center;
+    margin-left: -10%;
+    width: 100%;
+  }
 
   .transaction-item {
     grid-template-columns: 1fr;
     text-align: center;
+    margin-left: -10%;
   }
 }
