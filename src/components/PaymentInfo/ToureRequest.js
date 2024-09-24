@@ -5,7 +5,7 @@ import completed from "../../svgs/completed.svg";
 import scheduled from "../../svgs/scheduled.svg";
 import pending from "../../svgs/pending.svg";
 import cancel from "../../svgs/canceled.svg";
-import CalenderModal from "../Modals/CalenderModal.jsx"
+import CalenderModal from "../Modals/CalenderModal.jsx";
 import { FaBullseye } from "react-icons/fa6";
 import TimeSelectionModal from "../Modals/TimeselectionModal.jsx";
 import SuccessModal from "../Modals/SuccessModal.jsx";
@@ -15,8 +15,8 @@ const TenancyDetails = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isTimeSelectionOpen, setTimeSelectionOpen] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
-   
-    // Function to toggle the dropdown visibility
+
+  // Function to toggle the dropdown visibility
   const data = [
     {
       id: 1,
@@ -81,7 +81,7 @@ const TenancyDetails = () => {
   const handleOpenModal = () => {
     setIsModalVisible(true);
     setTimeSelectionOpen(false);
-    setDropdownVisible(false)
+    setDropdownVisible(false);
   };
 
   const openTimeSelectionModal = () => {
@@ -144,7 +144,14 @@ const TenancyDetails = () => {
                 <h4>{item.property}</h4>
                 <p>{item.location}</p>
               </div>
-              <div className="property-info">
+              <div
+                className="property-info"
+                style={{
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
+                  whiteSpace: "nowrap",
+                }}
+              >
                 <h4>{item.renter}</h4>
                 <p>
                   {item.contact} | {item.email}
@@ -163,57 +170,72 @@ const TenancyDetails = () => {
                 {" "}
                 <img src={imageToRender} alt={item.type} /> {item.type}
               </div>
-              <div className="dot-image" onClick={()=> toggleDropdown(item.id)}>
+              <div
+                className="dot-image"
+                onClick={() => toggleDropdown(item.id)}
+              >
                 <img src={dotted} alt="dot" />
               </div>
 
-          {/* Conditionally render card on top based on status */}
-          {isDropdownVisible === item.id && (
-            <div className={`absolute-card ${item.type.toLowerCase()}`}>
-              {item.type === "Tour Completed" && (
-                <div className="drop-menuu">
-                <ul>
-                  <li onClick={handleOpenModal}>Reschedule tour date</li>
-                  <li>Unmark tour completion</li>
-                  <li>Cancel</li>
-                </ul>
-              </div>
+              {/* Conditionally render card on top based on status */}
+              {isDropdownVisible === item.id && (
+                <div className={`absolute-card ${item.type.toLowerCase()}`}>
+                  {item.type === "Tour Completed" && (
+                    <div className="drop-menuu">
+                      <ul>
+                        <li onClick={handleOpenModal}>Reschedule tour date</li>
+                        <li>Unmark tour completion</li>
+                        <li>Cancel</li>
+                      </ul>
+                    </div>
+                  )}
+                  {item.type === "Tour Rescheduled" && (
+                    <div className="drop-menuu">
+                      <ul>
+                        <li onClick={handleOpenModal}>Reschedule tour date</li>
+                        <li>Unmark tour completion</li>
+                        <li>Cancel</li>
+                      </ul>
+                    </div>
+                  )}
+                  {item.type === "Cancel" && (
+                    <div className="drop-menuu">
+                      <ul>
+                        <li onClick={handleOpenModal}>Reschedule tour date</li>
+                      </ul>
+                    </div>
+                  )}
+                  {item.type === "Pending" && (
+                    <div className="drop-menuu">
+                      <ul>
+                        <li onClick={handleOpenModal}>Reschedule tour date</li>
+                        <li>Unmark tour completion</li>
+                        <li>Cancel</li>
+                      </ul>
+                    </div>
+                  )}
+                </div>
               )}
-              {item.type === "Tour Rescheduled" && (
-                 <div className="drop-menuu">
-                 <ul>
-                   <li onClick={handleOpenModal}>Reschedule tour date</li>
-                   <li>Unmark tour completion</li>
-                   <li>Cancel</li>
-                 </ul>
-               </div>
-              )}
-              {item.type === "Cancel" && (
-                <div className="drop-menuu">
-                <ul>
-                  <li onClick={handleOpenModal}>Reschedule tour date</li>
-                </ul>
-              </div>
-              )}
-              {item.type === "Pending" && (
-                 <div className="drop-menuu">
-                 <ul>
-                   <li onClick={handleOpenModal}>Reschedule tour date</li>
-                   <li>Unmark tour completion</li>
-                   <li>Cancel</li>
-                 </ul>
-               </div>
-              )}
-            </div>
-          )}
             </div>
           );
         })}
       </div>
-          {/* Modal for Rescheduling */}
-          <CalenderModal show={isModalVisible} onClose={handleCloseModal} onNext={openTimeSelectionModal}/>
-          <TimeSelectionModal isOpen={isTimeSelectionOpen} onClose={handleCloseModal} onBack={handleOpenModal} onProceed={handleProceed}/>
-          <SuccessModal show={showSuccessModal} handleClose={handleCloseSuccessModal}/>
+      {/* Modal for Rescheduling */}
+      <CalenderModal
+        show={isModalVisible}
+        onClose={handleCloseModal}
+        onNext={openTimeSelectionModal}
+      />
+      <TimeSelectionModal
+        isOpen={isTimeSelectionOpen}
+        onClose={handleCloseModal}
+        onBack={handleOpenModal}
+        onProceed={handleProceed}
+      />
+      <SuccessModal
+        show={showSuccessModal}
+        handleClose={handleCloseSuccessModal}
+      />
     </div>
   );
 };

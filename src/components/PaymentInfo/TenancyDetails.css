@@ -1,6 +1,6 @@
 .tenancy-details {
-  /* max-width: 1200px; */
-  /* margin: 0 auto; */
+  /* Container can adjust its width based on the screen size */
+  padding: 0 15px;
 }
 
 .header-section {
@@ -20,15 +20,10 @@
 }
 
 .filter-section select {
-  border: 1px 0px 0px 0px;
-  opacity: 0rem;
-  padding-top: 0.625rem;
-  padding-bottom: 0.625rem;
-  padding-right: 12.5rem;
-  float: left;
-  text-align: left;
-  margin-left: -2.5rem;
+  border: none;
+  padding: 10px;
   margin-top: 5px;
+  width: 100%;
 }
 
 .total-amounts {
@@ -46,33 +41,21 @@
 }
 .total-withdrawal {
   text-align: center;
-  padding-right: 30px;
   display: flex;
+  padding-right: 30px;
 }
 .amount-image {
   margin-left: 1.25rem;
 }
-.total-amounts h4 {
-  font-family: Inter;
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 14.52px;
-  letter-spacing: 0.01em;
-  text-align: right;
-}
-
+.total-amounts h4,
 .total-amounts p {
+  text-align: center;
   font-family: Inter;
-  font-size: 1.25rem;
-  font-weight: 600;
-  line-height: 24.2px;
-  letter-spacing: 0.01em;
-  text-align: right;
 }
 
 .transactions-list {
   display: grid;
-  gap: 40px;
+  gap: 20px; /* Reduced the gap for better spacing */
 }
 
 .transaction-item {
@@ -82,103 +65,72 @@
   padding: 10px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   align-items: center;
-  gap: 30px;
+  gap: 10px; /* Adjusted the gap */
 }
 
-.property-info h4 {
-  /* font-size: 13px;
-    margin-bottom: 5px;
-    text-align: left; */
-  font-family: Inter;
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 21.78px;
-  letter-spacing: 0.01em;
-  text-align: left;
-  white-space: nowrap;
-}
-
-.property-info p {
-  font-family: Inter;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 16.94px;
-  letter-spacing: 0.01em;
-  text-align: left;
-  white-space: nowrap;
-}
-
-.lease-info p {
-  font-family: Inter;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 16.94px;
-  letter-spacing: 0.01em;
-  text-align: left;
-  white-space: nowrap;
-}
-.lease-info h4 {
-  font-family: Inter;
-  font-size: 15px;
-  font-weight: 600;
-  line-height: 21.78px;
-  letter-spacing: 0.01em;
-  text-align: left;
-  white-space: nowrap;
-}
+.property-info,
 .lease-info {
-  font-size: 13px;
-  margin-bottom: 5px;
-  text-align: left;
+  white-space: nowrap;
 }
 
 .type-info {
-  padding: 0.5rem 1.5rem 0.5rem 1.5rem;
-  gap: 10px;
+  padding: 0.5rem 1.5rem;
   border-radius: 1.25rem;
   white-space: nowrap;
   cursor: pointer;
   background-color: #ebe7de;
 }
+
 #price-info {
   justify-content: flex-end;
   font-family: Inter;
   font-size: 20px;
   font-weight: 600;
-  line-height: 24.2px;
-  letter-spacing: 0.01em;
-  color: #000000;
-  text-align: left;
-  display: inline-block;
-  text-align: right !important;
-}
-
-button.rent {
-  background-color: #f0f0f0;
-}
-
-button.short-lease {
-  background-color: #d9e2ff;
-  color: #1f6feb;
+  color: #000;
+  text-align: right;
 }
 
 @media (max-width: 800px) {
   .header-section {
     grid-template-columns: 1fr;
-    /* text-align: center; */
+    text-align: center;
   }
+
   .total-amounts {
-    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-left: -10%;
+    margin-left: 0;
     width: 100%;
+  }
+
+  .total-made,
+  .total-withdrawal {
+    border-right: none; /* Removed the border for mobile */
+    padding-right: 0;
+    margin-bottom: 10px;
   }
 
   .transaction-item {
     grid-template-columns: 1fr;
     text-align: center;
-    margin-left: -10%;
+    margin-left: 0;
+  }
+
+  .filter-section select {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .transaction-item {
+    padding: 10px;
+  }
+
+  #price-info {
+    text-align: center !important;
+  }
+
+  .total-amounts p {
+    font-size: 1.1rem;
   }
 }
