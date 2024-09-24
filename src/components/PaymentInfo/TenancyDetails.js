@@ -98,12 +98,20 @@ const TenancyDetails = () => {
                 <h4>{item.property}</h4>
                 <p>{item.location}</p>
               </div>
-              <div className="property-info">
+              <div
+                className="property-info"
+                style={{
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
+                  whiteSpace: "nowrap",
+                }}
+              >
                 <h4>{item.renter}</h4>
                 <p>
                   {item.contact} | {item.email}
                 </p>
               </div>
+
               <div className="lease-info">
                 <h4>{item.leasePeriod}</h4>
                 <p>{item.duration}</p>
