@@ -33,6 +33,10 @@ import PropertyDescription from "./components/propertydescription";
 import ImageGrid from "./components/ImageGrid";
 import TalkNumbers from "./components/talknumbers";
 
+import Notificationtext from "./pages/Notificationtext";
+import PaymentBreak from "./pages/PaymentBreak";
+import LayoutForNotification from "./layout/layoutfornotification";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -170,6 +174,10 @@ const router = createBrowserRouter([
         path: "paymentmade",
         element: <ThankYouPage />,
       },
+      {
+        path: "paymentbreak",
+        element: <PaymentBreak />,
+      },
     ],
   },
   {
@@ -197,6 +205,16 @@ const router = createBrowserRouter([
   {
     path: "/notifications",
     element: <NotificationsPage />,
+  },
+  {
+    path: "/notificationlist",
+    element: <LayoutForNotification children={<Outlet />} />,
+    children: [
+      {
+        index: true,
+        element: <Notificationtext />,
+      },
+    ],
   },
 ]);
 export default router;
