@@ -1,5 +1,5 @@
 .tenancy-details {
-  max-width: 1200px;
+  /* max-width: 1200px; */
   /* margin: 0 auto; */
 }
 
@@ -48,7 +48,6 @@
   text-align: center;
   padding-right: 30px;
   display: flex;
-  
 }
 .amount-image {
   margin-left: 1.25rem;
@@ -168,7 +167,7 @@ button.short-lease {
     grid-template-columns: 1fr;
     /* text-align: center; */
   }
-  .total-amounts{
+  .total-amounts {
     display: flex;
     flex-direction: column;
     justify-content: center;
