@@ -38,7 +38,7 @@ const TimeSelectionModal = ({ isOpen, onClose, onBack, onProceed }) => {
             </p>
           </div>
           <div id="radio-body">
-            <label>
+            <label className="labelsss">
               <input
                 type="radio"
                 name="time"
@@ -48,7 +48,7 @@ const TimeSelectionModal = ({ isOpen, onClose, onBack, onProceed }) => {
               />{" "}
               11:00am
             </label>
-            <label>
+            <label className="labelsss">
               <input
                 type="radio"
                 name="time"
@@ -58,7 +58,7 @@ const TimeSelectionModal = ({ isOpen, onClose, onBack, onProceed }) => {
               />{" "}
               02:00am
             </label>
-            <label>
+            <label className="labelsss">
               <input
                 type="radio"
                 name="time"
@@ -68,7 +68,7 @@ const TimeSelectionModal = ({ isOpen, onClose, onBack, onProceed }) => {
               />{" "}
               04:00am
             </label>
-            <label>
+            <label className="labelsss">
               <input
                 type="radio"
                 name="time"
