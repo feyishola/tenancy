@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./AccountForm.css";
+import { Link } from "react-router-dom";
 
 const AccountForm = () => {
   const [formData, setFormData] = useState({
@@ -13,7 +14,7 @@ const AccountForm = () => {
   const [errors, setErrors] = useState({});
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [passwordStrength, setPasswordStrength] = useState("weak");
-  const [isFormVisible, setIsFormVisible] = useState(true); 
+  const [isFormVisible, setIsFormVisible] = useState(true);
 
   // Toggle password visibility
   const togglePasswordVisibility = () => {
@@ -28,18 +29,24 @@ const AccountForm = () => {
       [name]: type === "checkbox" ? checked : value,
     });
     if (name === "password") {
-      const strength = checkPasswordStrength(value); 
+      const strength = checkPasswordStrength(value);
       setPasswordStrength(strength);
     }
   };
   // Function to check password strength
   const checkPasswordStrength = (password) => {
-    if (password.length >= 8 && /[A-Z]/.test(password) && /[a-z]/.test(password) && /\d/.test(password) && /[!@#$%^&*]/.test(password)) {
-      return 'strong';
+    if (
+      password.length >= 8 &&
+      /[A-Z]/.test(password) &&
+      /[a-z]/.test(password) &&
+      /\d/.test(password) &&
+      /[!@#$%^&*]/.test(password)
+    ) {
+      return "strong";
     } else if (password.length >= 6) {
-      return 'medium';
+      return "medium";
     } else {
-      return 'weak';
+      return "weak";
     }
   };
   // Validate form
@@ -99,7 +106,6 @@ const AccountForm = () => {
     }
   };
 
-  
   const handleCloseForm = () => {
     setIsFormVisible(false); // Set form visibility to false to hide the form
   };
@@ -117,11 +123,10 @@ const AccountForm = () => {
             <button className="close-btn" onClick={handleCloseForm}>
               close: x
             </button>{" "}
-            
           </header>
         </div>
       </div>
-      <form class="formt"  onSubmit={handleSubmit}>
+      <form class="formt" onSubmit={handleSubmit}>
         <div class="flex justfy-start">
           <button type="button" class="btn ml-0">
             <span class="back"> ! Back</span>
@@ -149,7 +154,7 @@ const AccountForm = () => {
           placeholder="Surname"
           className="inputt"
         />
-        
+
         <p class="flex justfy-start">
           This should match the name on your government issued ID.
         </p>
@@ -174,35 +179,39 @@ const AccountForm = () => {
         {errors.dob && <p className="error-text">{errors.dob}</p>}
 
         <label class="labelt">CREATE PASSWORD</label>
-        
-        <div className="password-input-wrapper" style={{ position: "relative" }}>
-  <input
-    type={passwordVisible ? "text" : "password"}
-    name="password"
-    value={formData.password}
-    onChange={handleInputChange}
-    placeholder="Create a new password"
-    className="password-input"
-    
-  />
-  <button
-    type="button"
-    onClick={togglePasswordVisibility}
-    className="password-toggle-btn"
-  >
-    {passwordVisible ? "Hide" : "Show"}
-  </button>
-</div>
-        {errors.password && <p className="error-text">{errors.password}</p>} 
-        <div class="mainFlex" >
+
+        <div
+          className="password-input-wrapper"
+          style={{ position: "relative" }}
+        >
+          <input
+            type={passwordVisible ? "text" : "password"}
+            name="password"
+            value={formData.password}
+            onChange={handleInputChange}
+            placeholder="Create a new password"
+            className="password-input"
+          />
+          <button
+            type="button"
+            onClick={togglePasswordVisibility}
+            className="password-toggle-btn"
+          >
+            {passwordVisible ? "Hide" : "Show"}
+          </button>
+        </div>
+        {errors.password && <p className="error-text">{errors.password}</p>}
+        <div class="mainFlex">
           <div class="mainOne">
-          <p className="password-hint">
-          Password must contain at least 8 characters, uppercase and lowercase
-          letters,<br></br> and a special character.
-        </p>
-        <br></br>
+            <p className="password-hint">
+              Password must contain at least 8 characters, uppercase and
+              lowercase letters,<br></br> and a special character.
+            </p>
+            <br></br>
           </div>
-          <div class="mainTwo"> <p>
+          <div class="mainTwo">
+            {" "}
+            <p>
               Password strength:{" "}
               <i
                 id="wifi-icon"
@@ -211,9 +220,15 @@ const AccountForm = () => {
               <span className={`strength-text ${passwordStrength}`}>
                 {passwordStrength.toUpperCase()}
               </span>
-            </p></div>
+            </p>
+          </div>
         </div>
-        <p class="policy">By selecting "I agree below, I agree to RealHubAfrica's <a href='#'>Terms of service,</a><a href="#">Payments Terms of service,</a> and <a href="#">Privacy Policy.</a></p>
+        <p class="policy">
+          By selecting "I agree below, I agree to RealHubAfrica's{" "}
+          <Link to={"#"}>Terms of service,</Link>
+          <Link to={"#"}>Payments Terms of service,</Link>and{" "}
+          <Link to={"#"}>Privacy Policy.</Link>
+        </p>
         <label class="labelt">
           <input
             type="checkbox"
