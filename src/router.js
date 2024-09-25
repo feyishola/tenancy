@@ -32,7 +32,6 @@ import ThankYouPage from "./components/ThankYouPage/ThankYouPage";
 import PropertyDescription from "./components/propertydescription";
 import ImageGrid from "./components/ImageGrid";
 import TalkNumbers from "./components/talknumbers";
-import Test from "./pages/Test";
 import Term from "./pages/TermsAndCondition/Term";
 
 import Notificationtext from "./pages/Notificationtext";
@@ -81,10 +80,6 @@ const router = createBrowserRouter([
       {
         path: "profile",
         element: <Profile />,
-      },
-      {
-        path: "test",
-        element: <Test />,
       },
       {
         path: "terms",

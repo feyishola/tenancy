@@ -7,6 +7,8 @@ const Mapcomponent = lazy(()=>import("./mapcomponent"))
 
 const Mapform = () => {
   const [address, setAddress] = useState('');
+  const [buttonText, setButtonText] = useState('Search Location'); 
+  const [isSearching, setIsSearching] = useState(false); 
   const [inputValue, setInputValue] = useState('');
   const navigate = useNavigate();
 
@@ -19,11 +21,25 @@ const Mapform = () => {
     setInputValue(e.target.value);
   };
 
+
   const handleSubmit = () => {
-    if (inputValue.trim()) {
-      setAddress(inputValue);
-      setInputValue('');
-      navigate("/form/price")
+    
+    if (inputValue.trim() || buttonText === 'Continue') {
+      if (buttonText === 'Continue') {
+        // Only navigate when the button shows "Continue"
+        navigate("/form/price");
+      } else {
+        setAddress(inputValue);
+        setInputValue('');
+        setButtonText('Searching Location...');
+        setIsSearching(true); // Disable multiple searches during the process
+
+        // Simulate location search delay
+        setTimeout(() => {
+          setButtonText('Continue');
+          setIsSearching(false);
+        }, 5000); 
+      }
     }
   };
 
@@ -70,8 +86,16 @@ const Mapform = () => {
           </div>
         </div>
         <div className='px-5 pt-6 pb-10'>
-          <button className='w-full p-3 bg-black text-white' onClick={handleSubmit}>
+          {/* <button className='w-full p-3 bg-black text-white' onClick={handleSubmit}>
             Continue
+          </button> */}
+
+          <button
+            className={`w-full p-3 ${isSearching ? 'bg-gray-500' : 'bg-black'} text-white`}
+            onClick={handleSubmit}
+            disabled={isSearching} // Disable button during search
+          >
+            {buttonText}
           </button>
         </div>
       </div>
