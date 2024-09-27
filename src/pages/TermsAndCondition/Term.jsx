@@ -52,10 +52,10 @@ const Term = () => {
 
   return (
     <div className="terms-container">
-          <div className="terms-header">
+          <div className="terms-headers">
             <h2 className="term-mainheader">Terms and Conditions</h2>
             <button className="back-button"><img className='back-btn' src={back} alt="can" />Back</button>
-            </div>
+          </div>
       <div className="terms-content">
         <div className="draggable-border">
           <span

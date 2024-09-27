@@ -1,13 +1,12 @@
 /* Main container */
 .terms-container {
   display: grid;
-  grid-template-rows: 1fr auto;
   gap: 20px;
-  width: 100%;
+  width: 50%;
   background: #ffffff;
   height: 100vh;
   box-sizing: border-box;
-  margin: 2.5rem;
+  margin: 1.25rem auto;
 }
 
 /* Content section */
@@ -47,7 +46,7 @@
   cursor: row-resize;
   transform: translate(-50%, -50%);
 }
-.terms-header {
+.terms-headers {
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid black;
@@ -136,6 +135,9 @@ text-decoration: underline;
 
 /* Responsive */
 @media (max-width: 768px) {
+  .terms-container {
+   width: 100%;
+  }
   .terms-content {
     grid-template-columns: 1fr;
   }
