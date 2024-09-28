@@ -56,7 +56,7 @@ const router = createBrowserRouter([
         element: <Profile />,
       },
       {
-        path: "firstaccount",
+        path: "Firstaccount",
         element: <FirsAcccount />,
       },
 

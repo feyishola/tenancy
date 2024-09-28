@@ -9,7 +9,7 @@ const FormLayout = ({ children }) => {
       <main className="flex-grow px-[20px] md:px-[62px]">
         <div className='flex items-start font-unna border-b border-b-gray-400 mt-10 pb-5'>
             <p>Add a new listing</p>
-            {/* <button className='bg-black py-3 px-6 font-unna text-white'>Add a new Listing</button> */}
+            <button className='bg-black py-3 px-6 font-unna text-white'>Add a new Listing</button>
         </div>
         {children}
       </main>
