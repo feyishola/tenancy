@@ -163,7 +163,6 @@ button.short-lease {
 .absolute-card {
   position: relative;
   /* Adjust position relative to the task */
-
   width: 200px;
   text-align: left;
   background-color: white;
